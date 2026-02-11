@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 14% 4%;
+    --foreground: 38 30% 92%;
+
+    --card: 20 12% 7%;
+    --card-foreground: 38 30% 92%;
+
+    --popover: 20 12% 7%;
+    --popover-foreground: 38 30% 92%;
+
+    --primary: 36 80% 55%;
+    --primary-foreground: 20 14% 4%;
+
+    --secondary: 20 10% 12%;
+    --secondary-foreground: 38 20% 75%;
+
+    --muted: 20 8% 14%;
+    --muted-foreground: 30 10% 50%;
+
+    --accent: 36 80% 55%;
+    --accent-foreground: 20 14% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 8% 18%;
+    --input: 30 8% 18%;
+    --ring: 36 80% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 20 12% 7%;
+    --sidebar-foreground: 38 30% 92%;
+    --sidebar-primary: 36 80% 55%;
+    --sidebar-primary-foreground: 20 14% 4%;
+    --sidebar-accent: 20 10% 12%;
+    --sidebar-accent-foreground: 38 20% 75%;
+    --sidebar-border: 30 8% 18%;
+    --sidebar-ring: 36 80% 55%;
+
+    /* Custom portfolio tokens */
+    --glow: 36 90% 60%;
+    --hero-gradient: linear-gradient(135deg, hsl(36 80% 55%), hsl(28 90% 45%));
+    --text-dim: 30 10% 40%;
+    --surface-glass: 20 12% 8% / 0.8;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(36 80% 55%), hsl(28 90% 50%), hsl(36 80% 65%));
+  }
+
+  .border-glow {
+    border-color: hsl(36 80% 55% / 0.3);
+  }
+
+  .bg-glass {
+    background: hsl(20 12% 8% / 0.6);
+    backdrop-filter: blur(20px);
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 py-24 md:py-32;
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 30px -5px hsl(36 80% 55% / 0.3);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(20 14% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(30 8% 25%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(36 80% 55%);
+}
+
+/* Selection color */
+::selection {
+  background: hsl(36 80% 55% / 0.3);
+  color: hsl(38 30% 92%);
+}
