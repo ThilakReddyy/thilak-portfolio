@@ -105,6 +105,9 @@ const HeroSection = () => {
               >
                 <p className="text-primary font-bold text-sm">4K+ DAU</p>
               </motion.div>
+
+
+
             </div>
           </motion.div>
         </div>
