@@ -9,9 +9,10 @@ const experiences = [
     period: "July 2023 – Present",
     location: "Bangalore, India",
     highlights: [
-      "Led development of two large-scale frontend apps with React & TypeScript — zero major post-prod defects",
-      "Reduced partner onboarding from 25 days to 3 days via new integration workflow",
-      "Built internal platform routing issues directly to responsible teams",
+      "Led end-to-end development and ownership of two large-scale React and TypeScript applications supporting enterprise logistics operations, delivering stable releases with zero major post-production defects.",
+      "Architected and implemented a frontend-driven integration workflow that reduced external partner onboarding time from 25 days to three days, accelerating partner activation and improving operational efficiency.",
+      "Implemented Microsoft SSO (Azure AD) authentication and role-based access control (RBAC), enabling secure access management across multiple user groups and ensuring compliance with enterprise security standards.",
+      "Refactored and modernized legacy UI codebases, improving performance, component reusability, and maintainability, resulting in reduced technical debt and faster feature delivery.",
     ],
   },
   {
@@ -21,8 +22,9 @@ const experiences = [
     location: "Bangalore, India",
     highlights: [
       "Reduced production bugs by 32% through proactive incident detection",
-      "Automated monitoring workflows using Python, cut manual intervention significantly",
-      "Built Grafana dashboards for real-time observability",
+      "Designed and developed a centralized issue-routing platform that automatically directed operational requests to responsible teams, reducing manual intervention significantly",
+      "Implemented Microsoft Power Automate cloud flows to automate incident intake, category-based routing, and rule-driven assignment across teams using Outlook and Microsoft Teams integrations.",
+      "Integrated Excel logging and notification workflows to centralize request tracking, improve visibility, and reduce manual triaging effort across operational teams.",
     ],
   },
   {
@@ -31,8 +33,11 @@ const experiences = [
     period: "Freelance",
     location: "Remote — Cape Town, SA",
     highlights: [
-      "Developed nurse recruitment platform with React.js & Spring Boot",
-      "Built reusable components and integrated REST APIs",
+      "Served as the primary back-end Java engineer for a multi-role nurse recruitment platform supporting nurses, hiring staff, administrators, and consultants.",
+      "Designed and implemented secure authentication and role-based access control (RBAC) to manage permissions across user groups and protect sensitive healthcare data.",
+      "Engineered an automated job ingestion system that scraped listings from the NIMS portal, processed data through a queue-based workflow, and delivered near real-time job notifications, eliminating manual entry (10 minutes per nurse per posting).",
+      "Implemented document verification workflows using Amazon S3 for secure storage and approval gating, ensuring only verified nurses could operate within the platform.",
+      "Collaborated with front-end and stakeholders to streamline hiring workflows and improve operational efficiency."
     ],
   },
 ];
