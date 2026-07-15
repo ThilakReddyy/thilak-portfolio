@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Phone, Linkedin, Github, ArrowUpRight } from "lucide-react";
+import { Mail, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -8,9 +8,9 @@ const ContactSection = () => {
 
   const links = [
     { icon: Mail, label: "Email", value: "thilakreddy@dhethi.com", href: "mailto:thilakreddy@dhethi.com" },
-    { icon: Phone, label: "Phone", value: "+91-9381339131", href: "tel:+919381339131" },
     { icon: Linkedin, label: "LinkedIn", value: "thilakreddyy", href: "https://linkedin.com/in/thilakreddyy" },
     { icon: Github, label: "GitHub", value: "thilakreddyy", href: "https://github.com/thilakreddyy" },
+    { icon: Instagram, label: "Instagram", value: "__thilak_reddy__", href: "https://www.instagram.com/__thilak_reddy__/" },
   ];
 
   return (
@@ -35,7 +35,7 @@ const ContactSection = () => {
             <motion.a
               key={label}
               href={href}
-              target={label !== "Phone" ? "_blank" : undefined}
+              target={label !== "Email" ? "_blank" : undefined}
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -69,7 +69,7 @@ const ContactSection = () => {
       {/* Footer */}
       <div className="mt-24 pt-8 border-t border-border text-center">
         <p className="text-muted-foreground text-sm">
-          © 2025 Thilak Reddy. Built with passion and precision.
+          © {new Date().getFullYear()} Thilak Reddy. Built with passion and precision.
         </p>
       </div>
     </section>

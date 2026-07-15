@@ -4,19 +4,27 @@ import { useRef } from "react";
 const categories = [
   {
     title: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "Golang", "Java", "Kotlin", "C++", "SQL", "Bash"],
+    items: ["TypeScript", "JavaScript", "Python", "Go", "Java", "Kotlin", "Swift", "SQL", "Bash"],
   },
   {
-    title: "Frameworks",
-    items: ["React.js", "Next.js", "Vue.js", "Node.js", "Spring Boot", "FastAPI", "Django", "GIN"],
+    title: "Frontend",
+    items: ["React", "Next.js", "Vue.js", "Tailwind CSS"],
   },
   {
-    title: "Tools & Infra",
-    items: ["Docker", "Kubernetes", "Redis", "RabbitMQ", "PostgreSQL", "AWS", "Git", "Linux"],
+    title: "Backend & Data",
+    items: ["Node.js", "Spring Boot", "FastAPI", "Django", "Gin", "PostgreSQL", "Redis", "RabbitMQ"],
   },
   {
-    title: "Monitoring",
-    items: ["Grafana", "Prometheus", "Loki", "Cloudflare"],
+    title: "Mobile",
+    items: ["Android", "Jetpack Compose", "SwiftUI", "Swift Concurrency", "Firebase"],
+  },
+  {
+    title: "Cloud & Infrastructure",
+    items: ["AWS", "Docker", "Kubernetes", "Cloudflare", "Linux", "Git"],
+  },
+  {
+    title: "Automation & Observability",
+    items: ["Workflow Automation", "Web Scraping", "Beautiful Soup", "Prometheus", "Grafana", "Loki"],
   },
 ];
 

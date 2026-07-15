@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import profileImg from "@/assets/thilak-reddy.jpeg";
 
 const HeroSection = () => {
@@ -35,8 +35,8 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-muted-foreground text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
-              Building high-performance web applications and scalable systems at{" "}
-              <span className="text-primary font-medium">Maersk</span>. Passionate about turning complex problems into elegant solutions.
+              I engineer products end to end—from polished web and mobile experiences to scalable APIs,
+              cloud infrastructure, and automation.
             </p>
 
             <div className="flex items-center gap-4 mb-10">
@@ -58,6 +58,7 @@ const HeroSection = () => {
               {[
                 { icon: Github, href: "https://github.com/thilakreddyy", label: "GitHub" },
                 { icon: Linkedin, href: "https://linkedin.com/in/thilakreddyy", label: "LinkedIn" },
+                { icon: Instagram, href: "https://www.instagram.com/__thilak_reddy__/", label: "Instagram" },
                 { icon: Mail, href: "mailto:thilakreddy@dhethi.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <a

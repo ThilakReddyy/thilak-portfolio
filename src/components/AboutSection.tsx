@@ -42,7 +42,8 @@ const AboutSection = () => {
             <p className="text-muted-foreground text-lg leading-relaxed">
               Previously an SRE, I bring a unique blend of frontend mastery and infrastructure awareness.
               I independently built <span className="text-primary">JNTUH Connect</span> — ranked #1 on Google
-              for "JNTUH Results" — serving thousands of students daily.
+              for "JNTUH Results" — serving thousands of students daily. Whether it is a web platform,
+              data pipeline, or internal workflow, I look for the part that can be made faster, safer, and automatic.
             </p>
           </motion.div>
 
