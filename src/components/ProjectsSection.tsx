@@ -1,252 +1,293 @@
 import { motion, useInView } from "framer-motion";
+import {
+  Activity,
+  ArrowRight,
+  BookOpen,
+  Database,
+  Download,
+  ExternalLink,
+  Gauge,
+  Github,
+  GitFork,
+  Layers3,
+  Rocket,
+  Search,
+  Server,
+  Smartphone,
+  Star,
+  Users,
+} from "lucide-react";
 import { useRef } from "react";
-import { Download, ExternalLink, Github, Search, Users, Wrench } from "lucide-react";
 
-const stats = [
-  { icon: Download, value: "1K+", label: "Android Downloads" },
-  { icon: Users, value: "4K+", label: "Daily Users" },
-  { icon: Search, value: "#1", label: "Google Rank" },
-  { icon: Wrench, value: "12+", label: "Student Tools" },
+const impact = [
+  { icon: Users, value: "4K+", label: "Daily active users" },
+  { icon: Gauge, value: "<40ms", label: "Cached responses" },
+  { icon: Search, value: "#1", label: "Google rank" },
+  { icon: Download, value: "1K+", label: "Android downloads" },
+  { icon: Star, value: "56", label: "GitHub stars" },
+  { icon: GitFork, value: "17", label: "GitHub forks" },
 ];
 
-const flagshipPlatforms = [
+const architecture = [
   {
-    label: "Backend & Web",
-    stack: ["FastAPI", "Next.js", "RabbitMQ", "Redis", "PostgreSQL", "Cloudflare"],
+    icon: Layers3,
+    title: "Product experiences",
+    description: "Next.js web, Kotlin/Compose Android, and SwiftUI iOS",
   },
   {
-    label: "Infrastructure",
-    stack: ["AWS EC2", "Docker", "Prometheus", "Grafana", "Loki"],
+    icon: Server,
+    title: "Services & automation",
+    description: "FastAPI, asynchronous scraping, APIs, and notifications",
   },
   {
-    label: "Android",
-    stack: [
-      "Kotlin",
-      "Jetpack Compose",
-      "Material 3",
-      "Clean Architecture",
-      "Hilt",
-      "Retrofit",
-      "Gson",
-      "Room",
-      "Navigation Compose",
-      "DataStore",
-      "Firebase Cloud Messaging",
-    ],
+    icon: Database,
+    title: "Data & messaging",
+    description: "PostgreSQL, Redis caching, and RabbitMQ workflows",
   },
   {
-    label: "iOS",
-    stack: [
-      "Swift 6",
-      "SwiftUI",
-      "Observation",
-      "Swift Concurrency",
-      "URLSession",
-      "Codable",
-      "NavigationStack",
-      "SFSafariViewController",
-      "XcodeGen",
-      "Swift Testing",
-      "XCTest",
-    ],
+    icon: Activity,
+    title: "Delivery & operations",
+    description: "Docker, AWS EC2, GitHub Actions, Prometheus, Grafana, and Loki",
   },
 ];
 
-const flagshipRepositories = [
-  { label: "Frontend", href: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB/" },
-  { label: "Backend", href: "https://github.com/ThilakReddyy/jntuh-backend/" },
-  { label: "Android", href: "https://github.com/ThilakReddyy/jntuhconnect" },
-  { label: "iOS", href: "https://github.com/ThilakReddyy/jntuhconnect-ios" },
-];
-
-const projects = [
+const productLinks = [
   {
-    title: "JNTUH Results — Web",
-    description:
-      "A one-click results experience that lets JNTUH students review every semester and explore classmates' results without navigating university portals manually.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB",
-    live: "https://jntuhresults.vercel.app/",
+    label: "Live web product",
+    href: "https://jntuhconnect.dhethi.com/",
+    icon: ExternalLink,
   },
   {
-    title: "JNTUH Results — Service",
-    description:
-      "The FastAPI backend powering results, academic records, and backlog tracking, with asynchronous processing and a performance-focused data layer.",
-    stack: ["FastAPI", "PostgreSQL", "Redis", "RabbitMQ"],
-    github: "https://github.com/ThilakReddyy/jntuh-backend",
+    label: "Google Play",
+    href: "https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect",
+    icon: Smartphone,
   },
   {
-    title: "Telangana SSC Results",
-    description:
-      "A focused results portal for Telangana SSC students to view their performance and compare results with classmates in a single flow.",
-    stack: ["Next.js", "React", "Tailwind CSS"],
-    github: "https://github.com/ThilakReddyy/TS-SSC-RESULTS-WEB",
+    label: "App Store",
+    href: "https://apps.apple.com/in/app/jntuh-connect/id6790828236",
+    icon: Smartphone,
   },
   {
-    title: "Face Recognition Surveillance",
-    description:
-      "A college campus security prototype that identifies enrolled students from camera feeds and records attendance using facial recognition.",
-    stack: ["Python", "OpenCV", "Face Recognition"],
-    github: "https://github.com/ThilakReddyy/SURVEILLANCE-SYSTEM-USING-FACE-RECOGNITION",
+    label: "Scaling case study",
+    href: "https://thilakreddy.medium.com/how-i-scaled-jntuh-results-vercel-from-a-simple-script-to-22k-api-calls-daily-e3e3052fff32",
+    icon: BookOpen,
   },
 ];
 
-const IconLink = ({ href, label, external = false }: { href: string; label: string; external?: boolean }) => {
-  const Icon = external ? ExternalLink : Github;
+const repositories = [
+  {
+    label: "Web source",
+    href: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB",
+  },
+  {
+    label: "Backend source",
+    href: "https://github.com/ThilakReddyy/jntuh-backend",
+  },
+  {
+    label: "Android source",
+    href: "https://github.com/ThilakReddyy/jntuhconnect",
+  },
+  {
+    label: "iOS source",
+    href: "https://github.com/ThilakReddyy/jntuhconnect-ios",
+  },
+];
 
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-10 h-10 rounded-full border border-glow flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/60 transition-all duration-300"
-      aria-label={label}
-    >
-      <Icon size={18} />
-    </a>
-  );
-};
+const engineeringStories = [
+  {
+    icon: Rocket,
+    title: "Rebuilt for scale",
+    description:
+      "Evolved the original Django results workflow into asynchronous FastAPI services backed by PostgreSQL, Redis, and RabbitMQ.",
+  },
+  {
+    icon: Smartphone,
+    title: "Released natively",
+    description:
+      "Shipped dedicated Kotlin/Compose and SwiftUI clients—not web wrappers—with automated Android release delivery.",
+  },
+  {
+    icon: Activity,
+    title: "Operated in production",
+    description:
+      "Added rate limiting, metrics, centralized logging, push notifications, deployment automation, and operational monitoring.",
+  },
+];
 
 const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="section-padding relative" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="section-padding section-anchor relative" ref={ref}>
+      <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          className="mb-12"
         >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-3">Selected Work</p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl mb-16">
-            Products with <span className="text-gradient">Real Impact</span>
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
+            Flagship case study
+          </p>
+          <h2 className="max-w-4xl font-display text-3xl font-bold md:text-5xl">
+            One product. Four production{" "}
+            <span className="text-gradient">surfaces.</span>
           </h2>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
+        <motion.article
+          initial={false}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="bg-card border border-glow rounded-3xl p-8 md:p-12 hover-glow relative overflow-hidden"
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="relative overflow-hidden rounded-3xl border border-glow bg-card p-6 hover-glow sm:p-8 md:p-12"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-primary/5 blur-[90px]"
+          />
 
           <div className="relative z-10">
-            <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
+            <div className="mb-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
               <div>
-                <p className="text-primary text-xs font-medium uppercase tracking-widest mb-2">Flagship product ecosystem</p>
-                <h3 className="font-display font-bold text-2xl md:text-3xl text-foreground mb-2">JNTUH Connect</h3>
-                <p className="text-muted-foreground">Native Android and iOS apps for the JNTUH student community</p>
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-primary">
+                  Independently built &amp; operated
+                </p>
+                <h3 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
+                  JNTUH Connect
+                </h3>
+                <p className="leading-relaxed text-muted-foreground">
+                  A maintained student ecosystem spanning a public web app, API
+                  platform, native Android app, and native iOS app.
+                </p>
               </div>
-              <div className="flex gap-3">
-                <IconLink
-                  href="https://github.com/ThilakReddyy/jntuhconnect"
-                  label="View JNTUH Connect Android source on GitHub"
-                />
-                <IconLink
-                  href="https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect"
-                  label="Get JNTUH Connect on Google Play"
-                  external
-                />
-              </div>
+              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                I designed and built the product, backend services, data and queue
+                workflows, mobile clients, deployment automation, and observability.
+                Students use its 12+ tools for results, credits, backlogs, academic
+                resources, careers, rankings, and university updates.
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {stats.map(({ icon: Icon, value, label }) => (
-                <div key={label} className="bg-secondary/50 rounded-xl p-4 text-center border border-glow/50">
-                  <Icon size={20} className="text-primary mx-auto mb-2" />
-                  <p className="font-display font-bold text-xl text-foreground">{value}</p>
-                  <p className="text-muted-foreground text-xs">{label}</p>
+            <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+              {impact.map(({ icon: Icon, value, label }) => (
+                <div
+                  key={label}
+                  className="rounded-xl border border-glow/60 bg-secondary/45 p-4"
+                >
+                  <Icon size={18} className="mb-4 text-primary" aria-hidden="true" />
+                  <p className="font-display text-2xl font-bold text-foreground">
+                    {value}
+                  </p>
+                  <p className="mt-1 text-xs leading-snug text-muted-foreground">
+                    {label}
+                  </p>
                 </div>
               ))}
             </div>
-
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Independently designed, built, and shipped a cross-platform student ecosystem that brings results, credits,
-              backlogs, class rankings, academic resources, careers, and real-time university updates into one fast,
-              accessible experience. Native mobile apps are backed by a production-grade web, API, and observability stack.
+            <p className="mb-10 text-xs text-muted-foreground">
+              Product and performance figures come from production analytics; store
+              and GitHub figures were observed on 24 July 2026.
             </p>
 
-            <div className="space-y-5">
-              {flagshipPlatforms.map((platform) => (
-                <div key={platform.label}>
-                  <p className="mb-2 text-xs font-medium uppercase tracking-widest text-primary">{platform.label}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {platform.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium border border-glow/50"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+            <div className="mb-10">
+              <p className="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-primary">
+                How the system fits together
+              </p>
+              <div className="grid gap-3 lg:grid-cols-4">
+                {architecture.map(({ icon: Icon, title, description }, index) => (
+                  <div
+                    key={title}
+                    className="relative rounded-2xl border border-glow/60 bg-background/35 p-5"
+                  >
+                    <div className="mb-4 flex items-center justify-between">
+                      <Icon size={21} className="text-primary" aria-hidden="true" />
+                      {index < architecture.length - 1 && (
+                        <ArrowRight
+                          size={16}
+                          className="hidden text-muted-foreground/60 lg:block"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </div>
+                    <h4 className="mb-2 font-display font-semibold text-foreground">
+                      {title}
+                    </h4>
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {description}
+                    </p>
                   </div>
-                </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {productLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_24px_hsl(36_80%_55%/0.3)]"
+                >
+                  <Icon size={15} aria-hidden="true" />
+                  {label}
+                </a>
               ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3 border-t border-glow/50 pt-6">
-              {flagshipRepositories.map((repository) => (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {repositories.map((repository) => (
                 <a
                   key={repository.label}
                   href={repository.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-glow px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
+                  className="inline-flex items-center gap-2 rounded-full border border-glow px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
                 >
-                  <Github size={14} />
+                  <Github size={14} aria-hidden="true" />
                   {repository.label}
                 </a>
               ))}
             </div>
           </div>
-        </motion.div>
+        </motion.article>
 
-        <div className="mt-8 grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+        <div className="mt-6 grid gap-5 md:grid-cols-3">
+          {engineeringStories.map(({ icon: Icon, title, description }, index) => (
             <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={title}
+              initial={false}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.35 + index * 0.1 }}
-              className="bg-card border border-glow rounded-2xl p-6 hover-glow flex flex-col"
+              transition={{ duration: 0.45, delay: 0.3 + index * 0.09 }}
+              className="rounded-2xl border border-glow bg-card p-6"
             >
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <h3 className="font-display font-semibold text-xl text-foreground">{project.title}</h3>
-                <div className="flex gap-2 shrink-0">
-                  <IconLink href={project.github} label={`View ${project.title} on GitHub`} />
-                  {project.live && <IconLink href={project.live} label={`Visit ${project.title}`} external />}
-                </div>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span key={tech} className="px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs">
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <Icon size={22} className="mb-5 text-primary" aria-hidden="true" />
+              <h3 className="mb-3 font-display text-lg font-semibold text-foreground">
+                {title}
+              </h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {description}
+              </p>
             </motion.article>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.9 }}
-          className="mt-10 text-center"
+          transition={{ delay: 0.75 }}
+          className="mt-9 text-center"
         >
           <a
             href="https://github.com/ThilakReddyy?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
-            <Github size={17} />
+            <Github size={17} aria-hidden="true" />
             Explore all repositories
-            <ExternalLink size={14} />
+            <ExternalLink size={14} aria-hidden="true" />
           </a>
         </motion.div>
       </div>

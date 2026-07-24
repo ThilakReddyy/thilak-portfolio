@@ -1,43 +1,42 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { Briefcase } from "lucide-react";
+import { useRef } from "react";
 
 const experiences = [
   {
     company: "Maersk",
     role: "Software Engineer",
-    period: "July 2023 – Present",
-    location: "Bangalore, India",
+    period: "Jul 2023 — Sep 2026",
+    location: "Bengaluru, India",
+    skills: ["React", "TypeScript", "Azure AD", "RBAC"],
     highlights: [
-      "Led end-to-end development and ownership of two large-scale React and TypeScript applications supporting enterprise logistics operations, delivering stable releases with zero major post-production defects.",
-      "Architected and implemented a frontend-driven integration workflow that reduced external partner onboarding time from 25 days to three days, accelerating partner activation and improving operational efficiency.",
-      "Implemented Microsoft SSO (Azure AD) authentication and role-based access control (RBAC), enabling secure access management across multiple user groups and ensuring compliance with enterprise security standards.",
-      "Refactored and modernized legacy UI codebases, improving performance, component reusability, and maintainability, resulting in reduced technical debt and faster feature delivery.",
+      "Own end-to-end frontend delivery for two large enterprise logistics applications, with stable releases and zero major post-production defects.",
+      "Designed a partner-onboarding integration workflow that reduced activation time from 25 days to three days.",
+      "Implemented Azure AD single sign-on and role-based access, then modernized legacy code to improve reuse, maintainability, and release safety.",
     ],
   },
   {
     company: "Maersk",
     role: "Site Reliability Engineer",
-    period: "Aug 2022 – July 2023",
-    location: "Bangalore, India",
+    period: "Aug 2022 — Jul 2023",
+    location: "Bengaluru, India",
+    skills: ["Grafana", "Power Automate", "Incident response", "RCA"],
     highlights: [
-      "Reduced production bugs by 32% through proactive incident detection",
-      "Designed and developed a centralized issue-routing platform that automatically directed operational requests to responsible teams, reducing manual intervention significantly",
-      "Implemented Microsoft Power Automate cloud flows to automate incident intake, category-based routing, and rule-driven assignment across teams using Outlook and Microsoft Teams integrations.",
-      "Integrated Excel logging and notification workflows to centralize request tracking, improve visibility, and reduce manual triaging effort across operational teams.",
+      "Reduced production bugs by 32% through proactive incident detection, investigation, and root-cause analysis.",
+      "Built centralized issue-routing and Power Automate workflows for intake, categorization, assignment, logging, and notifications.",
+      "Carried an operations-first understanding of reliability, failure modes, and observability into later product-engineering work.",
     ],
   },
   {
     company: "Liorra",
-    role: "Software Engineer (Contract)",
-    period: "Freelance",
-    location: "Remote — Cape Town, SA",
+    role: "Software Engineer · Contract",
+    period: "2024 — 2025",
+    location: "Remote · Cape Town, South Africa",
+    skills: ["Java", "Spring Boot", "JWT", "Amazon S3"],
     highlights: [
-      "Served as the primary back-end Java engineer for a multi-role nurse recruitment platform supporting nurses, hiring staff, administrators, and consultants.",
-      "Designed and implemented secure authentication and role-based access control (RBAC) to manage permissions across user groups and protect sensitive healthcare data.",
-      "Engineered an automated job ingestion system that scraped listings from the NIMS portal, processed data through a queue-based workflow, and delivered near real-time job notifications, eliminating manual entry (10 minutes per nurse per posting).",
-      "Implemented document verification workflows using Amazon S3 for secure storage and approval gating, ensuring only verified nurses could operate within the platform.",
-      "Collaborated with front-end and stakeholders to streamline hiring workflows and improve operational efficiency."
+      "Served as a primary Java/Spring backend contributor to a multi-role nurse recruitment platform.",
+      "Implemented OTP/JWT authentication, role-based access, verification workflows, document handling, and domain APIs.",
+      "Built queue-driven NIMS job ingestion and notification workflows that replaced repetitive manual entry.",
     ],
   },
 ];
@@ -47,56 +46,90 @@ const ExperienceSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="section-padding relative" ref={ref}>
-      <div className="max-w-4xl mx-auto">
+    <section
+      id="experience"
+      className="section-padding section-anchor relative"
+      ref={ref}
+    >
+      <div className="mx-auto max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-3">Career</p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl mb-16">
-            Work <span className="text-gradient">Experience</span>
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
+            Professional experience
+          </p>
+          <h2 className="mb-14 font-display text-3xl font-bold md:text-5xl">
+            From reliability to <span className="text-gradient">product ownership.</span>
           </h2>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-[19px] top-2 bottom-2 w-px bg-border" />
+          <div
+            aria-hidden="true"
+            className="absolute bottom-2 left-[19px] top-2 w-px bg-border"
+          />
 
-          <div className="space-y-12">
-            {experiences.map((exp, i) => (
-              <motion.div
-                key={`${exp.company}-${exp.role}`}
-                initial={{ opacity: 0, x: -20 }}
+          <div className="space-y-9">
+            {experiences.map((experience, index) => (
+              <motion.article
+                key={`${experience.company}-${experience.role}`}
+                initial={false}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
+                transition={{ duration: 0.5, delay: 0.18 + index * 0.12 }}
                 className="relative pl-12"
               >
-                {/* Dot */}
-                <div className="absolute left-[12px] top-1.5 w-[15px] h-[15px] rounded-full border-2 border-primary bg-background" />
+                <div
+                  aria-hidden="true"
+                  className="absolute left-[12px] top-7 h-[15px] w-[15px] rounded-full border-2 border-primary bg-background"
+                />
 
-                <div className="bg-card border border-glow rounded-2xl p-6 hover-glow transition-all duration-300">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-1">
-                    <div className="flex items-center gap-2">
-                      <Briefcase size={16} className="text-primary" />
-                      <h3 className="font-display font-semibold text-lg text-foreground">{exp.role}</h3>
+                <div className="rounded-2xl border border-glow bg-card p-6 transition-all duration-300 hover-glow md:p-8">
+                  <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+                    <div>
+                      <div className="mb-2 flex items-center gap-2">
+                        <Briefcase size={16} className="text-primary" aria-hidden="true" />
+                        <h3 className="font-display text-xl font-semibold text-foreground">
+                          {experience.role}
+                        </h3>
+                      </div>
+                      <p className="text-sm font-medium text-primary">
+                        {experience.company} · {experience.location}
+                      </p>
                     </div>
-                    <span className="text-muted-foreground text-sm">{exp.period}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {experience.period}
+                    </span>
                   </div>
-                  <p className="text-primary text-sm font-medium mb-4">
-                    {exp.company} · {exp.location}
-                  </p>
-                  <ul className="space-y-2">
-                    {exp.highlights.map((h, j) => (
-                      <li key={j} className="text-muted-foreground text-sm flex gap-2">
-                        <span className="text-primary mt-1.5 shrink-0 w-1 h-1 rounded-full bg-primary inline-block" />
-                        {h}
+
+                  <ul className="mb-6 space-y-3">
+                    {experience.highlights.map((highlight) => (
+                      <li
+                        key={highlight}
+                        className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                        />
+                        {highlight}
                       </li>
                     ))}
                   </ul>
+
+                  <div className="flex flex-wrap gap-2">
+                    {experience.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-glow/60 bg-secondary/60 px-3 py-1 text-xs text-secondary-foreground"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>

@@ -1,78 +1,124 @@
 import { motion, useInView } from "framer-motion";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  Github,
+  Linkedin,
+  Mail,
+} from "lucide-react";
 import { useRef } from "react";
-import { Mail, Instagram, Linkedin, Github, ArrowUpRight } from "lucide-react";
+
+const links = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "thilakreddy@dhethi.com",
+    href: "mailto:thilakreddy@dhethi.com",
+    external: false,
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "thilakreddyy",
+    href: "https://in.linkedin.com/in/thilakreddyy",
+    external: true,
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "ThilakReddyy",
+    href: "https://github.com/ThilakReddyy",
+    external: true,
+  },
+  {
+    icon: BadgeCheck,
+    label: "Toptal",
+    value: "Verified Expert",
+    href: "https://www.toptal.com/developers/resume/pothuganti-thilak-reddy",
+    external: true,
+  },
+];
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const links = [
-    { icon: Mail, label: "Email", value: "thilakreddy@dhethi.com", href: "mailto:thilakreddy@dhethi.com" },
-    { icon: Linkedin, label: "LinkedIn", value: "thilakreddyy", href: "https://linkedin.com/in/thilakreddyy" },
-    { icon: Github, label: "GitHub", value: "thilakreddyy", href: "https://github.com/thilakreddyy" },
-    { icon: Instagram, label: "Instagram", value: "__thilak_reddy__", href: "https://www.instagram.com/__thilak_reddy__/" },
-  ];
-
   return (
-    <section id="contact" className="section-padding relative" ref={ref}>
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-3">Get in Touch</p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl mb-6">
-            Let's Build Something <span className="text-gradient">Amazing</span>
-          </h2>
-          <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, or just having a good tech conversation.
-          </p>
-        </motion.div>
+    <>
+      <section
+        id="contact"
+        className="section-padding section-anchor relative"
+        ref={ref}
+      >
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.div
+            initial={false}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
+              Get in touch
+            </p>
+            <h2 className="mb-6 font-display text-3xl font-bold md:text-5xl">
+              Need someone who can own the{" "}
+              <span className="text-gradient">whole product?</span>
+            </h2>
+            <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              I&apos;m interested in product, platform, backend, and automation work
+              where I can take responsibility from architecture through release and
+              operations.
+            </p>
+          </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-4 mb-12">
-          {links.map(({ icon: Icon, label, value, href }, i) => (
-            <motion.a
-              key={label}
-              href={href}
-              target={label !== "Email" ? "_blank" : undefined}
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-              className="group bg-card border border-glow rounded-2xl p-5 flex items-center gap-4 hover-glow transition-all duration-300 text-left"
-            >
-              <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                <Icon size={18} className="text-primary" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-muted-foreground text-xs uppercase tracking-wider">{label}</p>
-                <p className="text-foreground text-sm font-medium truncate">{value}</p>
-              </div>
-              <ArrowUpRight size={16} className="text-muted-foreground ml-auto group-hover:text-primary transition-colors shrink-0" />
-            </motion.a>
-          ))}
+          <div className="mb-12 grid gap-4 sm:grid-cols-2">
+            {links.map(({ icon: Icon, label, value, href, external }, index) => (
+              <motion.a
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                initial={false}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.25 + index * 0.08 }}
+                className="group flex items-center gap-4 rounded-2xl border border-glow bg-card p-5 text-left transition-all duration-300 hover-glow"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary transition-colors group-hover:bg-primary/20">
+                  <Icon size={18} className="text-primary" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                    {label}
+                  </p>
+                  <p className="truncate text-sm font-medium text-foreground">{value}</p>
+                </div>
+                <ArrowUpRight
+                  size={16}
+                  className="ml-auto shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+                  aria-hidden="true"
+                />
+              </motion.a>
+            ))}
+          </div>
+
+          <motion.a
+            href="mailto:thilakreddy@dhethi.com"
+            initial={false}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.65 }}
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_0_40px_hsl(36_80%_55%/0.4)]"
+          >
+            <Mail size={18} aria-hidden="true" />
+            Start a conversation
+          </motion.a>
         </div>
+      </section>
 
-        <motion.a
-          href="mailto:thilakreddy@dhethi.com"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.8 }}
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:shadow-[0_0_40px_hsl(36_80%_55%/0.4)] transition-all duration-300"
-        >
-          <Mail size={18} />
-          Say Hello
-        </motion.a>
-      </div>
-
-      {/* Footer */}
-      <div className="mt-24 pt-8 border-t border-border text-center">
-        <p className="text-muted-foreground text-sm">
-          © {new Date().getFullYear()} Thilak Reddy. Built with passion and precision.
+      <footer className="border-t border-border px-6 py-8 text-center">
+        <p className="text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Thilak Reddy. Built and maintained with care.
         </p>
-      </div>
-    </section>
+      </footer>
+    </>
   );
 };
 

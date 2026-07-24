@@ -1,0 +1,20 @@
+# Thilak Reddy — Portfolio
+
+> Pothuganti Thilak Reddy is a full-stack product and platform engineer who builds and operates products across web, backend systems, infrastructure, Android, and iOS.
+
+## Primary work
+
+- [Portfolio](https://thilakreddypothuganti.com/): Professional experience, capabilities, evidence, and contact information.
+- [JNTUH Connect](https://jntuhconnect.dhethi.com/): Flagship student product spanning web, API, Android, and iOS.
+- [GitHub](https://github.com/ThilakReddyy): Public source code and project history.
+- [Toptal](https://www.toptal.com/developers/resume/pothuganti-thilak-reddy): Verified engineering profile.
+
+## Public applications
+
+- [Google Play](https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect)
+- [Apple App Store](https://apps.apple.com/in/app/jntuh-connect/id6790828236)
+
+## Contact
+
+- [LinkedIn](https://in.linkedin.com/in/thilakreddyy)
+- Email: thilakreddy@dhethi.com

@@ -1,124 +1,199 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Instagram, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  BadgeCheck,
+  Github,
+  Linkedin,
+  Mail,
+  Smartphone,
+} from "lucide-react";
 import profileImg from "@/assets/thilak-reddy.jpeg";
+
+const professionalLinks = [
+  {
+    icon: Github,
+    href: "https://github.com/ThilakReddyy",
+    label: "GitHub",
+    external: true,
+  },
+  {
+    icon: Linkedin,
+    href: "https://in.linkedin.com/in/thilakreddyy",
+    label: "LinkedIn",
+    external: true,
+  },
+  {
+    icon: BadgeCheck,
+    href: "https://www.toptal.com/developers/resume/pothuganti-thilak-reddy",
+    label: "Toptal profile",
+    external: true,
+  },
+  {
+    icon: Mail,
+    href: "mailto:thilakreddy@dhethi.com",
+    label: "Email",
+    external: false,
+  },
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center noise-overlay overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
+    <section
+      id="top"
+      aria-labelledby="hero-title"
+      className="relative flex min-h-screen items-center overflow-hidden noise-overlay"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-[-8rem] top-1/4 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-[-8rem] h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px]"
+      />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-24 pb-12">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-8 items-center">
-          {/* Text */}
+      <div className="mx-auto w-full max-w-7xl px-6 pb-14 pt-24 md:px-12 md:pb-20 md:pt-32">
+        <div className="grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr] md:gap-10">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={false}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-2 md:order-1"
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="order-1"
           >
             <motion.p
-              initial={{ opacity: 0, y: 10 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-primary font-medium text-sm tracking-[0.3em] uppercase mb-4"
+              transition={{ delay: 0.3 }}
+              className="mb-4 text-xs font-medium uppercase tracking-[0.22em] text-primary sm:mb-5 sm:text-sm"
             >
-              Software Engineer
+              Full-stack product &amp; platform engineer
             </motion.p>
 
-            <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] mb-6">
-              Hi, I'm{" "}
-              <span className="text-gradient">Thilak</span>
-              <br />
-              <span className="text-gradient">Reddy</span>
+            <h1
+              id="hero-title"
+              className="mb-5 max-w-4xl font-display text-[2.7rem] font-bold leading-[1.02] sm:mb-6 sm:text-6xl lg:text-7xl"
+            >
+              I build products all the way to{" "}
+              <span className="text-gradient">production.</span>
             </h1>
 
-            <p className="text-muted-foreground text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
-              I engineer products end to end—from polished web and mobile experiences to scalable APIs,
-              cloud infrastructure, and automation.
+            <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
+              I&apos;m Thilak Reddy. From React and native mobile apps to FastAPI and
+              Java services, queues, observability, and automated releases—I own the
+              path from problem to users.
             </p>
 
-            <div className="flex items-center gap-4 mb-10">
+            <div className="mb-8 flex flex-wrap gap-2.5 text-xs sm:mb-9 sm:gap-3 sm:text-sm">
+              <span className="inline-flex items-center gap-2 rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground">
+                <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
+                Software Engineer at Maersk
+              </span>
+              <span className="inline-flex items-center rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground">
+                4+ years building production systems
+              </span>
               <a
-                href="#contact"
-                className="px-7 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:shadow-[0_0_30px_hsl(36_80%_55%/0.4)] transition-all duration-300"
+                href="https://www.toptal.com/developers/resume/pothuganti-thilak-reddy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground transition-colors hover:border-primary/60 hover:text-primary"
               >
-                Get in Touch
-              </a>
-              <a
-                href="#projects"
-                className="px-7 py-3 rounded-full border border-glow text-foreground font-medium text-sm hover:bg-primary/10 transition-all duration-300"
-              >
-                View Work
+                <BadgeCheck size={16} className="text-primary" aria-hidden="true" />
+                Toptal Verified Expert
               </a>
             </div>
 
-            <div className="flex items-center gap-5">
-              {[
-                { icon: Github, href: "https://github.com/thilakreddyy", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com/in/thilakreddyy", label: "LinkedIn" },
-                { icon: Instagram, href: "https://www.instagram.com/__thilak_reddy__/", label: "Instagram" },
-                { icon: Mail, href: "mailto:thilakreddy@dhethi.com", label: "Email" },
-              ].map(({ icon: Icon, href, label }) => (
+            <div className="mb-9 flex flex-wrap items-center gap-3 sm:mb-10 sm:gap-4">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_hsl(36_80%_55%/0.4)] sm:px-7"
+              >
+                Explore JNTUH Connect
+                <ArrowDown size={16} aria-hidden="true" />
+              </a>
+              <a
+                href="https://github.com/ThilakReddyy/JNTUHRESULTS-WEB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-glow px-6 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:bg-primary/10 sm:px-7"
+              >
+                View source
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className="hidden items-center gap-4 sm:flex">
+              {professionalLinks.map(({ icon: Icon, href, label, external }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-glow flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/60 transition-all duration-300"
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-glow text-muted-foreground transition-all duration-300 hover:border-primary/60 hover:text-primary"
                   aria-label={label}
                 >
-                  <Icon size={18} />
+                  <Icon size={18} aria-hidden="true" />
                 </a>
               ))}
             </div>
           </motion.div>
 
-          {/* Photo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="order-1 md:order-2 flex justify-center"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="order-2 flex justify-center md:justify-end"
           >
             <div className="relative">
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/40 via-primary/10 to-transparent blur-sm" />
-              <div className="relative w-64 h-72 md:w-80 md:h-96 rounded-3xl overflow-hidden border border-glow">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/40 via-primary/10 to-transparent blur-sm"
+              />
+              <div className="relative h-72 w-64 overflow-hidden rounded-3xl border border-glow md:h-[26rem] md:w-[21rem]">
                 <img
                   src={profileImg}
-                  alt="Thilak Reddy"
-                  className="w-full h-full object-cover object-top"
+                  alt="Pothuganti Thilak Reddy"
+                  width="960"
+                  height="1280"
+                  loading="eager"
+                  decoding="async"
+                  className="h-full w-full object-cover object-top"
                 />
               </div>
-              {/* Floating badge */}
+
               <motion.div
-                animate={{ y: [0, -8, 0] }}
+                animate={{ y: [0, -7, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-4 -left-4 bg-card border border-glow rounded-xl px-4 py-2 shadow-lg"
+                className="absolute -bottom-4 -left-3 rounded-xl border border-glow bg-card px-4 py-3 shadow-lg sm:-left-8"
               >
-                <p className="text-primary font-bold text-sm">4+ Years Exp.</p>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Perspective
+                </p>
+                <p className="font-display text-sm font-bold text-primary">
+                  SRE → Software Engineer
+                </p>
               </motion.div>
+
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -top-4 -right-4 bg-card border border-glow rounded-xl px-4 py-2 shadow-lg"
+                className="absolute -right-3 -top-4 rounded-xl border border-glow bg-card px-4 py-3 shadow-lg sm:-right-8"
               >
-                <p className="text-primary font-bold text-sm">4K+ DAU</p>
+                <p className="flex items-center gap-2 font-display text-sm font-bold text-primary">
+                  <Smartphone size={16} aria-hidden="true" />
+                  Android + iOS live
+                </p>
               </motion.div>
-
-
-
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
+          aria-hidden="true"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          transition={{ delay: 1.3 }}
+          className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 md:block"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

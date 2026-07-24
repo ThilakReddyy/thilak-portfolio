@@ -1,13 +1,28 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { Activity, Layers3, Rocket, Workflow } from "lucide-react";
 import { useRef } from "react";
-import { Code2, Server, Gauge, Users } from "lucide-react";
 
-const highlights = [
-  { icon: Code2, label: "Frontend", desc: "React, TypeScript, Next.js" },
-  { icon: Server, label: "Backend", desc: "FastAPI, Spring Boot, Go" },
-  { icon: Gauge, label: "Performance", desc: "Sub-40ms response times" },
-  { icon: Users, label: "Impact", desc: "4K+ daily active users" },
+const strengths = [
+  {
+    icon: Workflow,
+    title: "Find the bottleneck",
+    description: "Turn repetitive operational work into dependable automation.",
+  },
+  {
+    icon: Layers3,
+    title: "Own end to end",
+    description: "Work across UI, APIs, data, infrastructure, and release.",
+  },
+  {
+    icon: Activity,
+    title: "Operate what I ship",
+    description: "Build with metrics, logs, CI/CD, and user feedback in mind.",
+  },
+  {
+    icon: Rocket,
+    title: "Learn through delivery",
+    description: "Turn unfamiliar platforms into products people can actually use.",
+  },
 ];
 
 const AboutSection = () => {
@@ -15,58 +30,61 @@ const AboutSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="section-padding relative" ref={ref}>
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="section-padding section-anchor relative" ref={ref}>
+      <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-3">About Me</p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl mb-8">
-            Crafting <span className="text-gradient">Digital Experiences</span>
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
+            How I work
+          </p>
+          <h2 className="mb-10 max-w-3xl font-display text-3xl font-bold md:text-5xl">
+            An owner, not just an <span className="text-gradient">implementer.</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="space-y-6"
           >
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              I'm a Software Engineer at <span className="text-foreground font-medium">Maersk</span> in Bangalore,
-              where I lead the development of large-scale frontend applications using React and TypeScript,
-              delivering stable releases with zero major post-production defects.
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              I started in site reliability engineering and carried that operational
+              mindset into product development. I think beyond the feature: data flow,
+              failure modes, deployment, monitoring, and the user waiting on the other
+              side.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Previously an SRE, I bring a unique blend of frontend mastery and infrastructure awareness.
-              I independently built <span className="text-primary">JNTUH Connect</span> — ranked #1 on Google
-              for "JNTUH Results" — serving thousands of students daily. Whether it is a web platform,
-              data pipeline, or internal workflow, I look for the part that can be made faster, safer, and automatic.
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              <span className="font-medium text-foreground">JNTUH Connect</span> is the
+              clearest example. I evolved an early results project into a maintained
+              ecosystem spanning web, backend services, infrastructure, Android, iOS,
+              release automation, and direct community support.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-2 gap-4"
-          >
-            {highlights.map(({ icon: Icon, label, desc }, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, scale: 0.9 }}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {strengths.map(({ icon: Icon, title, description }, index) => (
+              <motion.article
+                key={title}
+                initial={false}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
-                className="bg-card border border-glow rounded-2xl p-5 hover-glow transition-all duration-300"
+                transition={{ duration: 0.4, delay: 0.25 + index * 0.08 }}
+                className="rounded-2xl border border-glow bg-card p-6 transition-all duration-300 hover-glow"
               >
-                <Icon size={24} className="text-primary mb-3" />
-                <p className="font-display font-semibold text-foreground mb-1">{label}</p>
-                <p className="text-muted-foreground text-sm">{desc}</p>
-              </motion.div>
+                <Icon size={24} className="mb-4 text-primary" aria-hidden="true" />
+                <h3 className="mb-2 font-display font-semibold text-foreground">
+                  {title}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
+              </motion.article>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
