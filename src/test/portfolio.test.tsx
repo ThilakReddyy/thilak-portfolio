@@ -14,6 +14,10 @@ describe("portfolio", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/Software Engineer at Maersk/i)).toBeInTheDocument();
     expect(screen.getByText("Jul 2023 — Sep 2026")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 3, name: "Freelance Software Engineer" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("May 2026 — Present")).toBeInTheDocument();
     expect(screen.getAllByText(/JNTUH Connect/i).length).toBeGreaterThan(0);
   });
 

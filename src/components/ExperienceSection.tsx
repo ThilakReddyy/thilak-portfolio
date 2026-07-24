@@ -4,6 +4,18 @@ import { useRef } from "react";
 
 const experiences = [
   {
+    company: "Independent",
+    role: "Freelance Software Engineer",
+    period: "May 2026 — Present",
+    location: "Remote",
+    skills: ["Product engineering", "Backend systems", "Automation", "Cloud delivery"],
+    highlights: [
+      "Deliver end-to-end product and platform engineering across React and TypeScript interfaces, Java and Python services, automation, and production operations.",
+      "Own independently scoped engagements from technical discovery and architecture through implementation, deployment, and handoff.",
+      "Bring an SRE-informed approach to reliability, observability, security, and long-term maintainability.",
+    ],
+  },
+  {
     company: "Maersk",
     role: "Software Engineer",
     period: "Jul 2023 — Sep 2026",
