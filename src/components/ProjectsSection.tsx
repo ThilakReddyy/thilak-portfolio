@@ -8,7 +8,6 @@ import {
   ExternalLink,
   Gauge,
   Github,
-  GitFork,
   Layers3,
   Rocket,
   Search,
@@ -21,11 +20,11 @@ import { useRef } from "react";
 
 const impact = [
   { icon: Users, value: "4K+", label: "Daily active users" },
+  { icon: Activity, value: "22K+", label: "Daily API calls" },
+  { icon: Download, value: "10K+", label: "Play Store downloads" },
   { icon: Gauge, value: "<40ms", label: "Cached responses" },
   { icon: Search, value: "#1", label: "Google rank" },
-  { icon: Download, value: "1K+", label: "Android downloads" },
-  { icon: Star, value: "56", label: "GitHub stars" },
-  { icon: GitFork, value: "17", label: "GitHub forks" },
+  { icon: Star, value: "56 / 18", label: "GitHub stars / forks" },
 ];
 
 const architecture = [
@@ -186,8 +185,8 @@ const ProjectsSection = () => {
               ))}
             </div>
             <p className="mb-10 text-xs text-muted-foreground">
-              Product and performance figures come from production analytics; store
-              and GitHub figures were observed on 24 July 2026.
+              Product and traffic figures come from production analytics; Play Store
+              and GitHub figures were observed on 6 August 2026.
             </p>
 
             <div className="mb-10">

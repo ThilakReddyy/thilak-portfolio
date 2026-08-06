@@ -8,6 +8,13 @@
 - [JNTUH Connect](https://jntuhconnect.dhethi.com/): Flagship student product spanning web, API, Android, and iOS.
 - [GitHub](https://github.com/ThilakReddyy): Public source code and project history.
 - [Toptal](https://www.toptal.com/developers/resume/pothuganti-thilak-reddy): Verified engineering profile.
+- [Resume PDF](https://drive.google.com/uc?export=download&id=1KsromuItzELx78Db61byNpM8Ujmlt8Aa): Downloadable resume.
+
+## Product impact
+
+- 4K+ daily active web users.
+- 22K+ API calls per day.
+- 10K+ Google Play downloads, with a 4.8 rating from 19 ratings as of 6 August 2026.
 
 ## Public applications
 

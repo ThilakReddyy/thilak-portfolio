@@ -23,23 +23,23 @@ const proofs = [
     eyebrow: "Apple App Store",
     title: "Native iOS app shipped",
     description:
-      "JNTUH Connect version 1.0 was released under my developer identity in July 2026.",
+      "JNTUH Connect version 1.0.2 is live under my developer identity, following its July 2026 launch.",
     label: "View on the App Store",
     href: "https://apps.apple.com/in/app/jntuh-connect/id6790828236",
   },
   {
     icon: Download,
     eyebrow: "Google Play",
-    title: "1K+ Android downloads",
+    title: "10K+ downloads · 4.8 rating",
     description:
-      "The native Kotlin and Jetpack Compose app is publicly distributed and actively maintained.",
+      "The native Kotlin and Jetpack Compose app has 19 ratings and was updated to version 1.0.43 in August 2026.",
     label: "View on Google Play",
     href: "https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect",
   },
   {
     icon: GitFork,
     eyebrow: "Open source",
-    title: "56 stars · 17 forks",
+    title: "56 stars · 18 forks",
     description:
       "The flagship Next.js repository has years of visible iteration and external developer interest.",
     label: "View flagship repository",
@@ -119,7 +119,7 @@ const CredentialsSection = () => {
         </div>
 
         <p className="mt-5 text-right text-xs text-muted-foreground">
-          Store and GitHub figures observed on 24 July 2026.
+          Store and GitHub figures observed on 6 August 2026.
         </p>
       </div>
     </section>

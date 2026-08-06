@@ -3,12 +3,16 @@ import {
   ArrowDown,
   ArrowUpRight,
   BadgeCheck,
+  Download,
   Github,
   Linkedin,
   Mail,
   Smartphone,
 } from "lucide-react";
 import profileImg from "@/assets/thilak-reddy.jpeg";
+
+const resumeDownloadUrl =
+  "https://drive.google.com/uc?export=download&id=1KsromuItzELx78Db61byNpM8Ujmlt8Aa";
 
 const professionalLinks = [
   {
@@ -119,6 +123,14 @@ const HeroSection = () => {
               >
                 View source
                 <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              <a
+                href={resumeDownloadUrl}
+                className="inline-flex items-center gap-2 rounded-full border border-glow px-6 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:border-primary/60 hover:text-primary sm:px-7"
+                aria-label="Download résumé PDF"
+              >
+                Download résumé
+                <Download size={16} aria-hidden="true" />
               </a>
             </div>
 

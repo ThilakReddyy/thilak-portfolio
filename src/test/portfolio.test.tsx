@@ -25,6 +25,9 @@ describe("portfolio", () => {
     render(<Index />);
 
     expect(screen.getByText("4K+")).toBeInTheDocument();
+    expect(screen.getByText("22K+")).toBeInTheDocument();
+    expect(screen.getByText("10K+")).toBeInTheDocument();
+    expect(screen.getByText(/10K\+ downloads · 4\.8 rating/i)).toBeInTheDocument();
     expect(screen.getByText("<40ms")).toBeInTheDocument();
     expect(screen.getByText("#1")).toBeInTheDocument();
     expect(screen.getByText("400+")).toBeInTheDocument();
@@ -60,6 +63,15 @@ describe("portfolio", () => {
     for (const [name, href] of repositoryLinks) {
       expect(screen.getByRole("link", { name })).toHaveAttribute("href", href);
     }
+  });
+
+  it("offers a direct résumé download", () => {
+    render(<Index />);
+
+    expect(screen.getByRole("link", { name: /download résumé pdf/i })).toHaveAttribute(
+      "href",
+      "https://drive.google.com/uc?export=download&id=1KsromuItzELx78Db61byNpM8Ujmlt8Aa",
+    );
   });
 
   it("has usable landmarks, navigation targets, and safe external links", () => {
