@@ -154,7 +154,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="order-2 flex justify-center md:justify-end"
+            className="order-2 hidden justify-center md:flex md:justify-end"
           >
             <div className="relative">
               <div
