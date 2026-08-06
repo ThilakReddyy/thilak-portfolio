@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -7,7 +8,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  Smartphone,
 } from "lucide-react";
 import profileImg from "@/assets/thilak-reddy.jpeg";
 
@@ -42,6 +42,38 @@ const professionalLinks = [
 ];
 
 const HeroSection = () => {
+  const [signalBurst, setSignalBurst] = useState<"light" | "heavy" | null>(null);
+
+  useEffect(() => {
+    let nextBurstTimer: ReturnType<typeof setTimeout>;
+    let burstEndTimer: ReturnType<typeof setTimeout>;
+
+    const scheduleBurst = () => {
+      const quietTime = 900 + Math.random() * 5_200;
+
+      nextBurstTimer = setTimeout(() => {
+        const intensity = Math.random() < 0.72 ? "light" : "heavy";
+        const duration =
+          intensity === "light"
+            ? 140 + Math.random() * 140
+            : 380 + Math.random() * 320;
+
+        setSignalBurst(intensity);
+        burstEndTimer = setTimeout(() => {
+          setSignalBurst(null);
+          scheduleBurst();
+        }, duration);
+      }, quietTime);
+    };
+
+    scheduleBurst();
+
+    return () => {
+      clearTimeout(nextBurstTimer);
+      clearTimeout(burstEndTimer);
+    };
+  }, []);
+
   return (
     <section
       id="top"
@@ -161,7 +193,9 @@ const HeroSection = () => {
                 aria-hidden="true"
                 className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/40 via-primary/10 to-transparent blur-sm"
               />
-              <div className="relative h-72 w-64 overflow-hidden rounded-3xl border border-glow md:h-[26rem] md:w-[21rem]">
+              <div
+                className={`signal-glitch${signalBurst ? ` signal-glitch--${signalBurst}` : ""} relative h-72 w-64 overflow-hidden rounded-3xl border border-glow md:h-[26rem] md:w-[21rem]`}
+              >
                 <img
                   src={profileImg}
                   alt="Pothuganti Thilak Reddy"
@@ -169,8 +203,23 @@ const HeroSection = () => {
                   height="1280"
                   loading="eager"
                   decoding="async"
-                  className="h-full w-full object-cover object-top"
+                  className="signal-glitch__base h-full w-full object-cover object-top"
                 />
+                <img
+                  src={profileImg}
+                  alt=""
+                  aria-hidden="true"
+                  decoding="async"
+                  className="signal-glitch__channel signal-glitch__channel--red"
+                />
+                <img
+                  src={profileImg}
+                  alt=""
+                  aria-hidden="true"
+                  decoding="async"
+                  className="signal-glitch__channel signal-glitch__channel--cyan"
+                />
+                <span className="signal-glitch__static" aria-hidden="true" />
               </div>
 
               <motion.div
@@ -179,10 +228,10 @@ const HeroSection = () => {
                 className="absolute -bottom-4 -left-3 rounded-xl border border-glow bg-card px-4 py-3 shadow-lg sm:-left-8"
               >
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  Perspective
+                  JNTUH Connect
                 </p>
                 <p className="font-display text-sm font-bold text-primary">
-                  SRE → Software Engineer
+                  Built for 10K+ students
                 </p>
               </motion.div>
 
@@ -192,8 +241,8 @@ const HeroSection = () => {
                 className="absolute -right-3 -top-4 rounded-xl border border-glow bg-card px-4 py-3 shadow-lg sm:-right-8"
               >
                 <p className="flex items-center gap-2 font-display text-sm font-bold text-primary">
-                  <Smartphone size={16} aria-hidden="true" />
-                  Android + iOS live
+                  <BadgeCheck size={16} aria-hidden="true" />
+                  Toptal Verified Expert
                 </p>
               </motion.div>
             </div>
