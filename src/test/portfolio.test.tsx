@@ -30,6 +30,9 @@ describe("portfolio", () => {
     expect(screen.getByText(/10K\+ downloads · 4\.8 rating/i)).toBeInTheDocument();
     expect(screen.getByText("<40ms")).toBeInTheDocument();
     expect(screen.getByText("#1")).toBeInTheDocument();
+    expect(screen.getByText(/complete production footprint/i)).toHaveTextContent(
+      /under \$14 per month while supporting 4K\+ daily active users and 22K\+ daily API calls/i,
+    );
     expect(screen.getByText("400+")).toBeInTheDocument();
     expect(screen.getByText(/Top 3% Toptal talent/i)).toBeInTheDocument();
     expect(screen.getByText(/zero major post-production defects/i)).toBeInTheDocument();

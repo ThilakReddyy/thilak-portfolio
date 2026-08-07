@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BookOpen,
   Database,
+  DollarSign,
   Download,
   ExternalLink,
   Gauge,
@@ -183,6 +184,22 @@ const ProjectsSection = () => {
                   </p>
                 </div>
               ))}
+            </div>
+            <div className="mb-4 flex items-start gap-4 rounded-2xl border border-primary/25 bg-primary/5 p-5">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <DollarSign size={20} aria-hidden="true" />
+              </div>
+              <div>
+                <p className="mb-1 font-display font-semibold text-foreground">
+                  Lean production economics
+                </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  I operate the complete production footprint—AWS EC2, Cloudflare,
+                  web and API infrastructure, plus Google Play and App Store
+                  distribution—for under $14 per month while supporting 4K+ daily
+                  active users and 22K+ daily API calls.
+                </p>
+              </div>
             </div>
             <p className="mb-10 text-xs text-muted-foreground">
               Product and traffic figures come from production analytics; Play Store
