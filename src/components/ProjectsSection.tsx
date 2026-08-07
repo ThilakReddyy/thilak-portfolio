@@ -18,15 +18,11 @@ import {
   Users,
 } from "lucide-react";
 import { useRef } from "react";
+import type { LiveProjectStats } from "@/hooks/use-live-project-stats";
 
-const impact = [
-  { icon: Users, value: "4K+", label: "Daily active users" },
-  { icon: Activity, value: "22K+", label: "Daily API calls" },
-  { icon: Download, value: "10K+", label: "Play Store downloads" },
-  { icon: Gauge, value: "<40ms", label: "Cached responses" },
-  { icon: Search, value: "#1", label: "Google rank" },
-  { icon: Star, value: "56 / 18", label: "GitHub stars / forks" },
-];
+type ProjectsSectionProps = {
+  stats: LiveProjectStats;
+};
 
 const architecture = [
   {
@@ -114,9 +110,21 @@ const engineeringStories = [
   },
 ];
 
-const ProjectsSection = () => {
+const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const impact = [
+    { icon: Users, value: "4K+", label: "Daily active users" },
+    { icon: Activity, value: "22K+", label: "Daily API calls" },
+    { icon: Download, value: stats.playDownloads, label: "Play Store downloads" },
+    { icon: Gauge, value: "<40ms", label: "Cached responses" },
+    { icon: Search, value: "#1", label: "Google rank" },
+    {
+      icon: Star,
+      value: `${stats.githubStars} / ${stats.githubForks}`,
+      label: "GitHub stars / forks",
+    },
+  ];
 
   return (
     <section id="projects" className="section-padding section-anchor relative" ref={ref}>
@@ -202,8 +210,8 @@ const ProjectsSection = () => {
               </div>
             </div>
             <p className="mb-10 text-xs text-muted-foreground">
-              Product and traffic figures come from production analytics; Play Store
-              and GitHub figures were observed on 6 August 2026.
+              Product and traffic figures come from production analytics. Play Store
+              and GitHub figures refresh from their public listings when this page loads.
             </p>
 
             <div className="mb-10">

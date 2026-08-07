@@ -1,4 +1,17 @@
 import "@testing-library/jest-dom";
+import { afterEach, vi } from "vitest";
+
+const fetchMock = vi.fn(() => Promise.reject(new Error("Network disabled in tests")));
+
+Object.defineProperty(globalThis, "fetch", {
+  writable: true,
+  value: fetchMock,
+});
+
+afterEach(() => {
+  fetchMock.mockReset();
+  fetchMock.mockRejectedValue(new Error("Network disabled in tests"));
+});
 
 class IntersectionObserverMock {
   readonly root = null;

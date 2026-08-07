@@ -10,6 +10,7 @@ import {
   Mail,
 } from "lucide-react";
 import profileImg from "@/assets/thilak-reddy.jpeg";
+import { useCurrentRole } from "@/hooks/use-current-role";
 
 const resumeDownloadUrl =
   "https://drive.google.com/file/d/1QmYEXHZ_ZGAKT3ZwrwBRC1nw2QnDFFd1/view?usp=sharing";
@@ -43,6 +44,7 @@ const professionalLinks = [
 
 const HeroSection = () => {
   const [signalBurst, setSignalBurst] = useState<"light" | "heavy" | null>(null);
+  const currentRole = useCurrentRole();
 
   useEffect(() => {
     let nextBurstTimer: ReturnType<typeof setTimeout>;
@@ -123,7 +125,7 @@ const HeroSection = () => {
             <div className="mb-8 flex flex-wrap gap-2.5 text-xs sm:mb-9 sm:gap-3 sm:text-sm">
               <span className="inline-flex items-center gap-2 rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground">
                 <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
-                Software Engineer at Maersk
+                {currentRole}
               </span>
               <span className="inline-flex items-center rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground">
                 4+ years building production systems

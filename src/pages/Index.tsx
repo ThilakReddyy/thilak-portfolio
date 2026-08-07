@@ -7,10 +7,12 @@ import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
+import { useLiveProjectStats } from "@/hooks/use-live-project-stats";
 import { useEffect, useState } from "react";
 
 const Index = () => {
   const [arrivalSignal, setArrivalSignal] = useState<"light" | "heavy" | null>(null);
+  const liveProjectStats = useLiveProjectStats();
 
   useEffect(() => {
     const intensity = Math.random() < 0.55 ? "light" : "heavy";
@@ -63,8 +65,8 @@ const Index = () => {
       <Navbar />
       <main id="main-content">
         <HeroSection />
-        <CredentialsSection />
-        <ProjectsSection />
+        <CredentialsSection stats={liveProjectStats} />
+        <ProjectsSection stats={liveProjectStats} />
         <ExperienceSection />
         <AboutSection />
         <SkillsSection />

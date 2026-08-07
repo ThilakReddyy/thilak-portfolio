@@ -7,49 +7,52 @@ import {
   GitFork,
 } from "lucide-react";
 import { useRef } from "react";
+import type { LiveProjectStats } from "@/hooks/use-live-project-stats";
 
-const proofs = [
-  {
-    icon: BadgeCheck,
-    eyebrow: "Vetted network",
-    title: "Top 3% Toptal talent",
-    description:
-      "Accepted as a Verified Expert in Engineering following Toptal's rigorous screening process.",
-    label: "View Toptal profile",
-    href: "https://www.toptal.com/developers/resume/pothuganti-thilak-reddy",
-  },
-  {
-    icon: AppWindow,
-    eyebrow: "Apple App Store",
-    title: "Native iOS app shipped",
-    description:
-      "JNTUH Connect version 1.0.2 is live under my developer identity, following its July 2026 launch.",
-    label: "View on the App Store",
-    href: "https://apps.apple.com/in/app/jntuh-connect/id6790828236",
-  },
-  {
-    icon: Download,
-    eyebrow: "Google Play",
-    title: "10K+ downloads · 4.8 rating",
-    description:
-      "The native Kotlin and Jetpack Compose app has 19 ratings and was updated to version 1.0.43 in August 2026.",
-    label: "View on Google Play",
-    href: "https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect",
-  },
-  {
-    icon: GitFork,
-    eyebrow: "Open source",
-    title: "56 stars · 18 forks",
-    description:
-      "The flagship Next.js repository has years of visible iteration and external developer interest.",
-    label: "View flagship repository",
-    href: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB",
-  },
-];
+type CredentialsSectionProps = {
+  stats: LiveProjectStats;
+};
 
-const CredentialsSection = () => {
+const CredentialsSection = ({ stats }: CredentialsSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const proofs = [
+    {
+      icon: BadgeCheck,
+      eyebrow: "Vetted network",
+      title: "Top 3% Toptal talent",
+      description:
+        "Accepted as a Verified Expert in Engineering following Toptal's rigorous screening process.",
+      label: "View Toptal profile",
+      href: "https://www.toptal.com/developers/resume/pothuganti-thilak-reddy",
+    },
+    {
+      icon: AppWindow,
+      eyebrow: "Apple App Store",
+      title: "Native iOS app shipped",
+      description:
+        "JNTUH Connect version 1.0.2 is live under my developer identity, following its July 2026 launch.",
+      label: "View on the App Store",
+      href: "https://apps.apple.com/in/app/jntuh-connect/id6790828236",
+    },
+    {
+      icon: Download,
+      eyebrow: "Google Play",
+      title: `${stats.playDownloads} downloads`,
+      description: `The native Kotlin and Jetpack Compose app has ${stats.playRatingsCount} ratings and is currently on version ${stats.playVersion}.`,
+      label: "View on Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect",
+    },
+    {
+      icon: GitFork,
+      eyebrow: "Open source",
+      title: `${stats.githubStars} stars · ${stats.githubForks} forks`,
+      description:
+        "The flagship Next.js repository has years of visible iteration and external developer interest.",
+      label: "View flagship repository",
+      href: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB",
+    },
+  ];
 
   return (
     <section id="proof" className="section-padding section-anchor relative" ref={ref}>
@@ -80,7 +83,7 @@ const CredentialsSection = () => {
 
             return (
               <motion.article
-                key={proof.title}
+                key={proof.eyebrow}
                 initial={false}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.45, delay: 0.12 + index * 0.08 }}
@@ -119,7 +122,7 @@ const CredentialsSection = () => {
         </div>
 
         <p className="mt-5 text-right text-xs text-muted-foreground">
-          Store and GitHub figures observed on 6 August 2026.
+          Store and GitHub figures refresh from their public listings on page load.
         </p>
       </div>
     </section>
