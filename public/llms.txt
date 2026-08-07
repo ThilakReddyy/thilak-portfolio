@@ -8,7 +8,7 @@
 - [JNTUH Connect](https://jntuhconnect.dhethi.com/): Flagship student product spanning web, API, Android, and iOS.
 - [GitHub](https://github.com/ThilakReddyy): Public source code and project history.
 - [Toptal](https://www.toptal.com/developers/resume/pothuganti-thilak-reddy): Verified engineering profile.
-- [Resume PDF](https://drive.google.com/file/d/1bV4lE5IZnReediVbzrivwyrtK0kSU-at/view?usp=sharing): Downloadable resume.
+- [Resume PDF](https://drive.google.com/file/d/1QmYEXHZ_ZGAKT3ZwrwBRC1nw2QnDFFd1/view?usp=sharing): Downloadable resume.
 
 ## Product impact
 

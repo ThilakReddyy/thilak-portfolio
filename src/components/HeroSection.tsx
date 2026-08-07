@@ -12,7 +12,7 @@ import {
 import profileImg from "@/assets/thilak-reddy.jpeg";
 
 const resumeDownloadUrl =
-  "https://drive.google.com/file/d/1bV4lE5IZnReediVbzrivwyrtK0kSU-at/view?usp=sharing";
+  "https://drive.google.com/file/d/1QmYEXHZ_ZGAKT3ZwrwBRC1nw2QnDFFd1/view?usp=sharing";
 
 const professionalLinks = [
   {
