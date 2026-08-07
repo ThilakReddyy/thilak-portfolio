@@ -70,7 +70,7 @@ describe("portfolio", () => {
 
     expect(screen.getByRole("link", { name: /download résumé pdf/i })).toHaveAttribute(
       "href",
-      "https://drive.google.com/uc?export=download&id=1KsromuItzELx78Db61byNpM8Ujmlt8Aa",
+      "https://drive.google.com/file/d/1bV4lE5IZnReediVbzrivwyrtK0kSU-at/view?usp=sharing",
     );
   });
 
