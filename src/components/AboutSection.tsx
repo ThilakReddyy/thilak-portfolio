@@ -86,6 +86,26 @@ const AboutSection = () => {
             ))}
           </div>
         </div>
+
+        <motion.blockquote
+          initial={false}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-12 rounded-2xl border border-glow bg-card p-8 text-lg leading-relaxed text-muted-foreground md:p-10"
+        >
+          <p>
+            I don&apos;t assume I&apos;m the smartest person in the room. But I know
+            I&apos;m one of the most reliable. Skills can be trained. Experience can be
+            gained. What&apos;s harder to teach is ownership. If something has my name on
+            it, it gets done properly.
+          </p>
+          <p className="mt-4 font-medium text-foreground">
+            You&apos;re not just hiring talent, you&apos;re hiring accountability. A
+            project I shipped in 2022 is still live and maintained today, across web,
+            backend, and mobile. Nobody pays me to keep it running. I do it anyway,
+            because that&apos;s the standard I hold myself to.
+          </p>
+        </motion.blockquote>
       </div>
     </section>
   );
