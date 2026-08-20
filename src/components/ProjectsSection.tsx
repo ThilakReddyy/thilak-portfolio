@@ -2,14 +2,18 @@ import { motion, useInView } from "framer-motion";
 import {
   Activity,
   ArrowRight,
+  Bot,
   BookOpen,
   Database,
   DollarSign,
   Download,
   ExternalLink,
+  FileSearch,
   Gauge,
   Github,
+  Landmark,
   Layers3,
+  Radio,
   Rocket,
   Search,
   Server,
@@ -107,6 +111,27 @@ const engineeringStories = [
     title: "Operated in production",
     description:
       "Added rate limiting, metrics, centralized logging, push notifications, deployment automation, and operational monitoring.",
+  },
+];
+
+const bhubharatiHighlights = [
+  {
+    icon: Radio,
+    title: "Real-time streaming",
+    description:
+      "SSE-driven survey and Khata traversal streams live record and progress counts instead of simulated loading.",
+  },
+  {
+    icon: Bot,
+    title: "MCP-grounded assistant",
+    description:
+      "A FastAPI service exposing a streamable HTTP MCP server with 12 tools, backing a deterministic, record-grounded chatbot.",
+  },
+  {
+    icon: FileSearch,
+    title: "Resilient data pipeline",
+    description:
+      "PostgreSQL-backed hierarchy cache, bounded-concurrency scraping, retries, and defensive parsing over public portal data.",
   },
 ];
 
@@ -296,6 +321,102 @@ const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
             </motion.article>
           ))}
         </div>
+
+        <motion.div
+          initial={false}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mb-6 mt-16"
+        >
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
+            Other builds
+          </p>
+          <h2 className="max-w-3xl font-display text-2xl font-bold md:text-3xl">
+            Public land records, made searchable.
+          </h2>
+        </motion.div>
+
+        <motion.article
+          initial={false}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.65 }}
+          className="relative overflow-hidden rounded-3xl border border-glow bg-card p-6 hover-glow sm:p-8"
+        >
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 top-0 h-64 w-64 rounded-full bg-primary/5 blur-[90px]"
+          />
+
+          <div className="relative z-10">
+            <div className="mb-6 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="mb-3 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-primary">
+                  <Landmark size={14} aria-hidden="true" />
+                  Independently built &amp; operated
+                </p>
+                <h3 className="mb-4 font-display text-2xl font-bold text-foreground md:text-3xl">
+                  BhuBharati Explorer
+                </h3>
+                <p className="leading-relaxed text-muted-foreground">
+                  A full-stack, read-only explorer for public Telangana land
+                  records, with a FastAPI backend, live SSE streaming, and an
+                  MCP server for AI clients.
+                </p>
+              </div>
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Users step through district, mandal, and village to stream
+                every survey, Khata, and record over SSE, then search, filter,
+                sort, and export the results. A deterministic, MCP-grounded
+                assistant explains fields and summarizes fetched records
+                without sending data to an external AI provider by default.
+              </p>
+            </div>
+
+            <div className="mb-6 grid gap-3 sm:grid-cols-3">
+              {bhubharatiHighlights.map(({ icon: Icon, title, description }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl border border-glow/60 bg-background/35 p-5"
+                >
+                  <Icon size={20} className="mb-3 text-primary" aria-hidden="true" />
+                  <h4 className="mb-2 font-display text-sm font-semibold text-foreground">
+                    {title}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mb-6 text-xs text-muted-foreground">
+              Unofficial project. It reads public portal data, does not
+              modify it, and must not be used as the sole basis for a title,
+              ownership, or transaction decision.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://bhubharati.dhethi.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_24px_hsl(36_80%_55%/0.3)]"
+              >
+                <ExternalLink size={15} aria-hidden="true" />
+                Live explorer
+              </a>
+              <a
+                href="https://github.com/ThilakReddyy/bhubharati"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-glow px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
+              >
+                <Github size={14} aria-hidden="true" />
+                Source
+              </a>
+            </div>
+          </div>
+        </motion.article>
 
         <motion.div
           initial={false}

@@ -43,7 +43,9 @@ const professionalLinks = [
 ];
 
 const HeroSection = () => {
-  const [signalBurst, setSignalBurst] = useState<"light" | "heavy" | null>(null);
+  const [signalBurst, setSignalBurst] = useState<"light" | "heavy" | null>(
+    null,
+  );
   const currentRole = useCurrentRole();
 
   useEffect(() => {
@@ -117,14 +119,17 @@ const HeroSection = () => {
             </h1>
 
             <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl">
-              I&apos;m Thilak Reddy. From React and native mobile apps to FastAPI and
-              Java services, queues, observability, and automated releases—I own the
-              path from problem to users.
+              I&apos;m Thilak Reddy. From React and native mobile apps to
+              FastAPI and Java services, queues, observability, and automated
+              releases—I own the path from problem to users.
             </p>
 
             <div className="mb-8 flex flex-wrap gap-2.5 text-xs sm:mb-9 sm:gap-3 sm:text-sm">
               <span className="inline-flex items-center gap-2 rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground">
-                <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
+                <span
+                  className="h-2 w-2 rounded-full bg-emerald-400"
+                  aria-hidden="true"
+                />
                 {currentRole}
               </span>
               <span className="inline-flex items-center rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground">
@@ -136,7 +141,11 @@ const HeroSection = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-glow bg-card/70 px-4 py-2 text-foreground transition-colors hover:border-primary/60 hover:text-primary"
               >
-                <BadgeCheck size={16} className="text-primary" aria-hidden="true" />
+                <BadgeCheck
+                  size={16}
+                  className="text-primary"
+                  aria-hidden="true"
+                />
                 Toptal Verified Expert
               </a>
             </div>
@@ -153,7 +162,7 @@ const HeroSection = () => {
                 href="https://github.com/ThilakReddyy/JNTUHRESULTS-WEB"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-glow px-6 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:bg-primary/10 sm:px-7"
+                className="hidden inline-flex items-center gap-2 rounded-full border border-glow px-6 py-3 text-sm font-medium text-foreground transition-all duration-300 hover:bg-primary/10 sm:px-7"
               >
                 View source
                 <ArrowUpRight size={16} aria-hidden="true" />
@@ -169,18 +178,20 @@ const HeroSection = () => {
             </div>
 
             <div className="hidden items-center gap-4 sm:flex">
-              {professionalLinks.map(({ icon: Icon, href, label, external }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-glow text-muted-foreground transition-all duration-300 hover:border-primary/60 hover:text-primary"
-                  aria-label={label}
-                >
-                  <Icon size={18} aria-hidden="true" />
-                </a>
-              ))}
+              {professionalLinks.map(
+                ({ icon: Icon, href, label, external }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-glow text-muted-foreground transition-all duration-300 hover:border-primary/60 hover:text-primary"
+                    aria-label={label}
+                  >
+                    <Icon size={18} aria-hidden="true" />
+                  </a>
+                ),
+              )}
             </div>
           </motion.div>
 
@@ -226,7 +237,11 @@ const HeroSection = () => {
 
               <motion.div
                 animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="absolute -bottom-4 -left-3 rounded-xl border border-glow bg-card px-4 py-3 shadow-lg sm:-left-8"
               >
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">
@@ -239,7 +254,12 @@ const HeroSection = () => {
 
               <motion.div
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
                 className="absolute -right-3 -top-4 rounded-xl border border-glow bg-card px-4 py-3 shadow-lg sm:-right-8"
               >
                 <p className="flex items-center gap-2 font-display text-sm font-bold text-primary">
