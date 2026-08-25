@@ -1,9 +1,9 @@
-import { motion, useInView } from "framer-motion";
 import {
   Activity,
-  ArrowRight,
+  ArrowUpRight,
   Bot,
   BookOpen,
+  Compass,
   Database,
   DollarSign,
   Download,
@@ -11,7 +11,6 @@ import {
   FileSearch,
   Gauge,
   Github,
-  Landmark,
   Layers3,
   Radio,
   Rocket,
@@ -21,7 +20,6 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import { useRef } from "react";
 import type { LiveProjectStats } from "@/hooks/use-live-project-stats";
 
 type ProjectsSectionProps = {
@@ -52,62 +50,46 @@ const architecture = [
 ];
 
 const productLinks = [
-  {
-    label: "Live web product",
-    href: "https://jntuhconnect.dhethi.com/",
-    icon: ExternalLink,
-  },
+  { label: "Live web product", href: "https://jntuhconnect.dhethi.com/" },
   {
     label: "Google Play",
     href: "https://play.google.com/store/apps/details?id=com.dhethi.jntuhconnect",
-    icon: Smartphone,
   },
   {
     label: "App Store",
     href: "https://apps.apple.com/in/app/jntuh-connect/id6790828236",
-    icon: Smartphone,
   },
   {
     label: "Scaling case study",
     href: "https://thilakreddy.medium.com/how-i-scaled-jntuh-results-vercel-from-a-simple-script-to-22k-api-calls-daily-e3e3052fff32",
-    icon: BookOpen,
   },
 ];
 
 const repositories = [
-  {
-    label: "Web source",
-    href: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB",
-  },
-  {
-    label: "Backend source",
-    href: "https://github.com/ThilakReddyy/jntuh-backend",
-  },
-  {
-    label: "Android source",
-    href: "https://github.com/ThilakReddyy/jntuhconnect",
-  },
-  {
-    label: "iOS source",
-    href: "https://github.com/ThilakReddyy/jntuhconnect-ios",
-  },
+  { label: "Web source", href: "https://github.com/ThilakReddyy/JNTUHRESULTS-WEB" },
+  { label: "Backend source", href: "https://github.com/ThilakReddyy/jntuh-backend" },
+  { label: "Android source", href: "https://github.com/ThilakReddyy/jntuhconnect" },
+  { label: "iOS source", href: "https://github.com/ThilakReddyy/jntuhconnect-ios" },
 ];
 
 const engineeringStories = [
   {
     icon: Rocket,
+    eyebrow: "Rebuild",
     title: "Rebuilt for scale",
     description:
       "Evolved the original Django results workflow into asynchronous FastAPI services backed by PostgreSQL, Redis, and RabbitMQ.",
   },
   {
     icon: Smartphone,
+    eyebrow: "Release",
     title: "Released natively",
     description:
       "Shipped dedicated Kotlin/Compose and SwiftUI clients—not web wrappers—with automated Android release delivery.",
   },
   {
     icon: Activity,
+    eyebrow: "Operate",
     title: "Operated in production",
     description:
       "Added rate limiting, metrics, centralized logging, push notifications, deployment automation, and operational monitoring.",
@@ -136,8 +118,6 @@ const bhubharatiHighlights = [
 ];
 
 const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const impact = [
     { icon: Users, value: "4K+", label: "Daily active users" },
     { icon: Activity, value: "22K+", label: "Daily API calls" },
@@ -152,289 +132,216 @@ const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
   ];
 
   return (
-    <section id="projects" className="section-padding section-anchor relative" ref={ref}>
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={false}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
-            Flagship case study
+    <section id="projects" className="work-section section-pad section-anchor">
+      <div className="shell">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">Flagship case study</p>
+            <h2>
+              One product. Four production <span>surfaces.</span>
+            </h2>
+          </div>
+          <p>
+            I designed and built the product, backend services, data and queue
+            workflows, mobile clients, deployment automation, and observability.
           </p>
-          <h2 className="max-w-4xl font-display text-3xl font-bold md:text-5xl">
-            One product. Four production{" "}
-            <span className="text-gradient">surfaces.</span>
-          </h2>
-        </motion.div>
+        </div>
 
-        <motion.article
-          initial={false}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative overflow-hidden rounded-3xl border border-glow bg-card p-6 hover-glow sm:p-8 md:p-12"
-        >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-primary/5 blur-[90px]"
-          />
-
-          <div className="relative z-10">
-            <div className="mb-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <article className="product-card">
+          <div className="product-topline">
+            <div className="product-identity">
+              <span className="product-icon" aria-hidden="true">
+                JC
+              </span>
               <div>
-                <p className="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-primary">
-                  Independently built &amp; operated
-                </p>
-                <h3 className="mb-4 font-display text-3xl font-bold text-foreground md:text-4xl">
-                  JNTUH Connect
-                </h3>
-                <p className="leading-relaxed text-muted-foreground">
-                  A maintained student ecosystem spanning a public web app, API
-                  platform, native Android app, and native iOS app.
-                </p>
+                <p>Independently built &amp; operated</p>
+                <h3>JNTUH Connect</h3>
               </div>
-              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                I designed and built the product, backend services, data and queue
-                workflows, mobile clients, deployment automation, and observability.
+            </div>
+            <span className="live-pill">
+              <span /> Live in production
+            </span>
+          </div>
+
+          <div className="product-main">
+            <div>
+              <p className="product-intro">
+                A maintained student ecosystem spanning a public web app, API
+                platform, native Android app, and native iOS app.
+              </p>
+              <p className="product-body">
                 Students use its 12+ tools for results, credits, backlogs, academic
                 resources, careers, rankings, and university updates.
               </p>
-            </div>
 
-            <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-              {impact.map(({ icon: Icon, value, label }) => (
-                <div
-                  key={label}
-                  className="rounded-xl border border-glow/60 bg-secondary/45 p-4"
-                >
-                  <Icon size={18} className="mb-4 text-primary" aria-hidden="true" />
-                  <p className="font-display text-2xl font-bold text-foreground">
-                    {value}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-muted-foreground">
+              <div className="product-links">
+                {productLinks.map(({ label, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                    {label} <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+
+              <div className="repo-links">
+                {repositories.map(({ label, href }) => (
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer">
+                    <Github size={14} aria-hidden="true" />
                     {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="mb-4 flex items-start gap-4 rounded-2xl border border-primary/25 bg-primary/5 p-5">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <DollarSign size={20} aria-hidden="true" />
-              </div>
-              <div>
-                <p className="mb-1 font-display font-semibold text-foreground">
-                  Lean production economics
-                </p>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  I operate the complete production footprint—AWS EC2, Cloudflare,
-                  web and API infrastructure, plus Google Play and App Store
-                  distribution—for under $14 per month while supporting 4K+ daily
-                  active users and 22K+ daily API calls.
-                </p>
-              </div>
-            </div>
-            <p className="mb-10 text-xs text-muted-foreground">
-              Product and traffic figures come from production analytics. Play Store
-              and GitHub figures refresh from their public listings when this page loads.
-            </p>
-
-            <div className="mb-10">
-              <p className="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-primary">
-                How the system fits together
-              </p>
-              <div className="grid gap-3 lg:grid-cols-4">
-                {architecture.map(({ icon: Icon, title, description }, index) => (
-                  <div
-                    key={title}
-                    className="relative rounded-2xl border border-glow/60 bg-background/35 p-5"
-                  >
-                    <div className="mb-4 flex items-center justify-between">
-                      <Icon size={21} className="text-primary" aria-hidden="true" />
-                      {index < architecture.length - 1 && (
-                        <ArrowRight
-                          size={16}
-                          className="hidden text-muted-foreground/60 lg:block"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </div>
-                    <h4 className="mb-2 font-display font-semibold text-foreground">
-                      {title}
-                    </h4>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {description}
-                    </p>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              {productLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_24px_hsl(36_80%_55%/0.3)]"
-                >
-                  <Icon size={15} aria-hidden="true" />
-                  {label}
-                </a>
-              ))}
-            </div>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {repositories.map((repository) => (
-                <a
-                  key={repository.label}
-                  href={repository.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-glow px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
-                >
-                  <Github size={14} aria-hidden="true" />
-                  {repository.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </motion.article>
-
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {engineeringStories.map(({ icon: Icon, title, description }, index) => (
-            <motion.article
-              key={title}
-              initial={false}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.45, delay: 0.3 + index * 0.09 }}
-              className="rounded-2xl border border-glow bg-card p-6"
-            >
-              <Icon size={22} className="mb-5 text-primary" aria-hidden="true" />
-              <h3 className="mb-3 font-display text-lg font-semibold text-foreground">
-                {title}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {description}
-              </p>
-            </motion.article>
-          ))}
-        </div>
-
-        <motion.div
-          initial={false}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.55 }}
-          className="mb-6 mt-16"
-        >
-          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-primary">
-            Other builds
-          </p>
-          <h2 className="max-w-3xl font-display text-2xl font-bold md:text-3xl">
-            Public land records, made searchable.
-          </h2>
-        </motion.div>
-
-        <motion.article
-          initial={false}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.65 }}
-          className="relative overflow-hidden rounded-3xl border border-glow bg-card p-6 hover-glow sm:p-8"
-        >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute left-0 top-0 h-64 w-64 rounded-full bg-primary/5 blur-[90px]"
-          />
-
-          <div className="relative z-10">
-            <div className="mb-6 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-              <div>
-                <p className="mb-3 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.22em] text-primary">
-                  <Landmark size={14} aria-hidden="true" />
-                  Independently built &amp; operated
-                </p>
-                <h3 className="mb-4 font-display text-2xl font-bold text-foreground md:text-3xl">
-                  BhuBharati Explorer
-                </h3>
-                <p className="leading-relaxed text-muted-foreground">
-                  A full-stack, read-only explorer for public Telangana land
-                  records, with a FastAPI backend, live SSE streaming, and an
-                  MCP server for AI clients.
-                </p>
-              </div>
-              <p className="text-base leading-relaxed text-muted-foreground">
-                Users step through district, mandal, and village to stream
-                every survey, Khata, and record over SSE, then search, filter,
-                sort, and export the results. A deterministic, MCP-grounded
-                assistant explains fields and summarizes fetched records
-                without sending data to an external AI provider by default.
-              </p>
-            </div>
-
-            <div className="mb-6 grid gap-3 sm:grid-cols-3">
-              {bhubharatiHighlights.map(({ icon: Icon, title, description }) => (
-                <div
-                  key={title}
-                  className="rounded-2xl border border-glow/60 bg-background/35 p-5"
-                >
-                  <Icon size={20} className="mb-3 text-primary" aria-hidden="true" />
-                  <h4 className="mb-2 font-display text-sm font-semibold text-foreground">
-                    {title}
-                  </h4>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {description}
-                  </p>
+            <div className="metric-grid">
+              {impact.map(({ icon: Icon, value, label }) => (
+                <div className="metric" key={label}>
+                  <Icon size={18} aria-hidden="true" />
+                  <strong>{value}</strong>
+                  <span>{label}</span>
                 </div>
               ))}
             </div>
+          </div>
 
-            <p className="mb-6 text-xs text-muted-foreground">
-              Unofficial project. It reads public portal data, does not
-              modify it, and must not be used as the sole basis for a title,
-              ownership, or transaction decision.
-            </p>
+          <div className="surface-grid">
+            {architecture.map(({ icon: Icon, title, description }, index) => (
+              <div className="surface" key={title}>
+                <div className="surface-head">
+                  <Icon size={19} aria-hidden="true" />
+                  <span>0{index + 1}</span>
+                </div>
+                <strong>{title}</strong>
+                <p>{description}</p>
+              </div>
+            ))}
+          </div>
 
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="https://bhubharati.dhethi.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-[0_0_24px_hsl(36_80%_55%/0.3)]"
-              >
-                <ExternalLink size={15} aria-hidden="true" />
-                Live explorer
-              </a>
-              <a
-                href="https://github.com/ThilakReddyy/bhubharati"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-glow px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/60 hover:text-primary"
-              >
-                <Github size={14} aria-hidden="true" />
-                Source
-              </a>
+          <div className="product-foot">
+            <div>
+              <DollarSign size={20} aria-hidden="true" />
+              <p>
+                <strong>Lean production economics</strong>I operate the complete
+                production footprint—AWS EC2, Cloudflare, web and API infrastructure,
+                plus Google Play and App Store distribution—for under $14 per month
+                while supporting 4K+ daily active users and 22K+ daily API calls.
+              </p>
             </div>
           </div>
-        </motion.article>
+        </article>
 
-        <motion.div
-          initial={false}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.75 }}
-          className="mt-9 text-center"
-        >
+        <p className="section-note">
+          Product and traffic figures come from production analytics. Play Store and
+          GitHub figures refresh from their public listings when this page loads.
+        </p>
+
+        <div className="proof-grid proof-grid-three story-grid">
+          {engineeringStories.map(({ icon: Icon, eyebrow, title, description }) => (
+            <article className="proof-card" key={title}>
+              <div className="proof-card-head">
+                <span className="proof-icon">
+                  <Icon size={20} aria-hidden="true" />
+                </span>
+                <span className="proof-eyebrow">{eyebrow}</span>
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+
+        <article className="product-card product-card-orange">
+          <div className="product-topline">
+            <div className="product-identity">
+              <span className="product-icon" aria-hidden="true">
+                BB
+              </span>
+              <div>
+                <p>Independently built &amp; operated</p>
+                <h3>BhuBharati Explorer</h3>
+              </div>
+            </div>
+            <span className="live-pill">
+              <span /> Live in production
+            </span>
+          </div>
+
+          <div className="product-main">
+            <div>
+              <p className="product-intro">
+                A full-stack, read-only explorer for public Telangana land records,
+                with live SSE streaming and an MCP server for AI clients.
+              </p>
+              <p className="product-body">
+                Users step through district, mandal, and village to stream every
+                survey, Khata, and record over SSE, then search, filter, sort, and
+                export the results. A deterministic, MCP-grounded assistant explains
+                fields and summarizes fetched records without sending data to an
+                external AI provider by default.
+              </p>
+
+              <div className="product-links">
+                <a
+                  href="https://bhubharati.dhethi.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live explorer <ExternalLink size={15} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://github.com/ThilakReddyy/bhubharati"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github size={14} aria-hidden="true" /> Source
+                </a>
+              </div>
+            </div>
+
+            <div className="metric-grid metric-grid-solo">
+              <div className="metric">
+                <Users size={18} aria-hidden="true" />
+                <strong>200+</strong>
+                <span>Daily active users</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="surface-grid surface-grid-three">
+            {bhubharatiHighlights.map(({ icon: Icon, title, description }, index) => (
+              <div className="surface" key={title}>
+                <div className="surface-head">
+                  <Icon size={19} aria-hidden="true" />
+                  <span>0{index + 1}</span>
+                </div>
+                <strong>{title}</strong>
+                <p>{description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="product-foot">
+            <div>
+              <Compass size={20} aria-hidden="true" />
+              <p>
+                <strong>Unofficial and read-only</strong>It reads public portal data,
+                does not modify it, and must not be used as the sole basis for a
+                title, ownership, or transaction decision.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <div className="work-outro">
           <a
             href="https://github.com/ThilakReddyy?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
-            <Github size={17} aria-hidden="true" />
+            <Github size={16} aria-hidden="true" />
             Explore all repositories
-            <ExternalLink size={14} aria-hidden="true" />
+            <ArrowUpRight size={15} aria-hidden="true" />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
