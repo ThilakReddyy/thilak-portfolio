@@ -52,10 +52,6 @@ const HeroSection = () => {
 
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="grid-wash" aria-hidden="true" />
-      <div className="orbit orbit-one" aria-hidden="true" />
-      <div className="orbit orbit-two" aria-hidden="true" />
-
       <div className="shell hero-inner">
         <div className="reveal">
           <p className="eyebrow">

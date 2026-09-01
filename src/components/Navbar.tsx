@@ -17,10 +17,22 @@ const Navbar = () => {
   const mobileNavigationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    let scrollFrame: number | undefined;
+    const updateScrolledState = () => {
+      scrollFrame = undefined;
+      setScrolled(window.scrollY > 12);
+    };
+    const onScroll = () => {
+      if (scrollFrame !== undefined) return;
+      scrollFrame = window.requestAnimationFrame(updateScrolledState);
+    };
+
+    updateScrolledState();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      if (scrollFrame !== undefined) window.cancelAnimationFrame(scrollFrame);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {

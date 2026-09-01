@@ -62,9 +62,9 @@ const AboutSection = () => (
 
         <blockquote className="builder-quote">
           <p>
-            I measure ownership by what happens after launch: whether the system is
-            observable, maintainable, and still useful years later. JNTUH Connect began
-            in 2022 and remains live across web, backend, Android, and iOS today.
+            I am one of the most reliable people you can work with. Skills can be
+            trained. Experience can be gained. What&apos;s harder to teach is ownership.
+            If something has my name on it, it gets done properly.
           </p>
         </blockquote>
 
