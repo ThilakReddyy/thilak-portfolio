@@ -37,14 +37,24 @@ const ContactSection = () => (
       <p className="section-kicker">Get in touch</p>
       <h2>Need someone who can own the whole product?</h2>
       <p>
-        I&apos;m interested in product, platform, backend, and automation work where I
-        can take responsibility from architecture through release and operations.
+        Available from September 2026 for product, platform, backend, and automation
+        work. Based in Hyderabad (IST) and comfortable collaborating remotely across
+        time zones, from architecture through release and operations.
       </p>
 
       <div className="hero-actions" style={{ justifyContent: "center" }}>
         <a className="button button-invert" href="mailto:thilakreddy@dhethi.com">
           <Mail size={18} aria-hidden="true" />
           Start a conversation
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
+        <a
+          className="button button-outline-light"
+          href="https://drive.google.com/file/d/1QmYEXHZ_ZGAKT3ZwrwBRC1nw2QnDFFd1/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View résumé
           <ArrowUpRight size={18} aria-hidden="true" />
         </a>
       </div>

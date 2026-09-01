@@ -50,6 +50,10 @@ const ticker = [
 
 const HeroSection = () => {
   const currentRole = useCurrentRole();
+  const availability =
+    currentRole === "Freelance Software Engineer"
+      ? "Open to new work"
+      : "Available from September 2026";
 
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -89,7 +93,7 @@ const HeroSection = () => {
 
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">
-              Explore the flagship
+              Explore the work
               <ArrowRight size={17} aria-hidden="true" />
             </a>
             <a
@@ -97,9 +101,9 @@ const HeroSection = () => {
               href={resumeDownloadUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Download résumé PDF"
+              aria-label="View résumé on Google Drive"
             >
-              Download résumé
+              View résumé
               <Download size={16} aria-hidden="true" />
             </a>
           </div>
@@ -121,8 +125,8 @@ const HeroSection = () => {
 
         <div className="hero-object reveal reveal-delay">
           <div className="object-label">
-            <span>Currently</span>
-            <strong>Open to work</strong>
+            <span>Availability</span>
+            <strong>{availability}</strong>
           </div>
           <img
             src={profileImg}
@@ -142,7 +146,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="hero-ticker" aria-label="Capabilities">
+      <div className="hero-ticker" aria-hidden="true">
         <div className="ticker-track">
           {[...ticker, ...ticker].map((item, index) => (
             <Fragment key={`${item}-${index}`}>

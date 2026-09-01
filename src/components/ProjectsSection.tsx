@@ -2,7 +2,6 @@ import {
   Activity,
   ArrowUpRight,
   Bot,
-  BookOpen,
   Compass,
   Database,
   DollarSign,
@@ -13,10 +12,8 @@ import {
   Github,
   Layers3,
   Radio,
-  Rocket,
   Search,
   Server,
-  Smartphone,
   Star,
   Users,
 } from "lucide-react";
@@ -72,30 +69,6 @@ const repositories = [
   { label: "iOS source", href: "https://github.com/ThilakReddyy/jntuhconnect-ios" },
 ];
 
-const engineeringStories = [
-  {
-    icon: Rocket,
-    eyebrow: "Rebuild",
-    title: "Rebuilt for scale",
-    description:
-      "Evolved the original Django results workflow into asynchronous FastAPI services backed by PostgreSQL, Redis, and RabbitMQ.",
-  },
-  {
-    icon: Smartphone,
-    eyebrow: "Release",
-    title: "Released natively",
-    description:
-      "Shipped dedicated Kotlin/Compose and SwiftUI clients—not web wrappers—with automated Android release delivery.",
-  },
-  {
-    icon: Activity,
-    eyebrow: "Operate",
-    title: "Operated in production",
-    description:
-      "Added rate limiting, metrics, centralized logging, push notifications, deployment automation, and operational monitoring.",
-  },
-];
-
 const bhubharatiHighlights = [
   {
     icon: Radio,
@@ -136,14 +109,14 @@ const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
       <div className="shell">
         <div className="section-heading">
           <div>
-            <p className="section-kicker">Flagship case study</p>
+            <p className="section-kicker">Selected work</p>
             <h2>
-              One product. Four production <span>surfaces.</span>
+              Products built and operated <span>end to end.</span>
             </h2>
           </div>
           <p>
-            I designed and built the product, backend services, data and queue
-            workflows, mobile clients, deployment automation, and observability.
+            Two production case studies spanning product interfaces, backend systems,
+            live data workflows, release automation, and ongoing operations.
           </p>
         </div>
 
@@ -154,7 +127,7 @@ const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
                 JC
               </span>
               <div>
-                <p>Independently built &amp; operated</p>
+                <p>Flagship ecosystem · independently built &amp; operated</p>
                 <h3>JNTUH Connect</h3>
               </div>
             </div>
@@ -234,21 +207,6 @@ const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
           GitHub figures refresh from their public listings when this page loads.
         </p>
 
-        <div className="proof-grid proof-grid-three story-grid">
-          {engineeringStories.map(({ icon: Icon, eyebrow, title, description }) => (
-            <article className="proof-card" key={title}>
-              <div className="proof-card-head">
-                <span className="proof-icon">
-                  <Icon size={20} aria-hidden="true" />
-                </span>
-                <span className="proof-eyebrow">{eyebrow}</span>
-              </div>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
-          ))}
-        </div>
-
         <article className="product-card product-card-orange">
           <div className="product-topline">
             <div className="product-identity">
@@ -256,7 +214,7 @@ const ProjectsSection = ({ stats }: ProjectsSectionProps) => {
                 BB
               </span>
               <div>
-                <p>Independently built &amp; operated</p>
+                <p>Independent product · live public data</p>
                 <h3>BhuBharati Explorer</h3>
               </div>
             </div>

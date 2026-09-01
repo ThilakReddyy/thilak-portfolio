@@ -4,8 +4,8 @@
   "description": "Portfolio of full-stack product and platform engineer Pothuganti Thilak Reddy.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0d0b0a",
-  "theme_color": "#0d0b0a",
+  "background_color": "#f3efe6",
+  "theme_color": "#f3efe6",
   "icons": [
     {
       "src": "/icon-192.png",

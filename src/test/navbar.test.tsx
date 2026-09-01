@@ -19,6 +19,7 @@ describe("mobile navigation", () => {
 
     const mobileNavigation = document.getElementById("mobile-navigation");
     expect(mobileNavigation).not.toBeNull();
+    expect(document.body.style.overflow).toBe("hidden");
 
     fireEvent.click(
       within(mobileNavigation as HTMLElement).getByRole("link", { name: "Work" }),
@@ -26,6 +27,7 @@ describe("mobile navigation", () => {
     expect(
       screen.getByRole("button", { name: "Open navigation menu" }),
     ).toHaveAttribute("aria-expanded", "false");
+    expect(document.body.style.overflow).toBe("");
   });
 
   it("closes when Escape is pressed", () => {

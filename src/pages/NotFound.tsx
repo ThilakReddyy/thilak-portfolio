@@ -1,14 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
   return (
     <div className="not-found">
       <a href="/" className="wordmark" aria-label="Thilak Reddy, back to home">

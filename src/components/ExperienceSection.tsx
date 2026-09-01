@@ -1,3 +1,5 @@
+import { useCurrentRole } from "@/hooks/use-current-role";
+
 const experiences = [
   {
     company: "Independent",
@@ -49,51 +51,66 @@ const experiences = [
   },
 ];
 
-const ExperienceSection = () => (
-  <section id="experience" className="experience-section section-pad section-anchor">
-    <div className="shell">
-      <div className="section-heading">
-        <div>
-          <p className="section-kicker">Professional experience</p>
-          <h2>
-            From reliability to <span>product ownership.</span>
-          </h2>
+const ExperienceSection = () => {
+  const currentRole = useCurrentRole();
+  const currentExperiences = experiences.map((experience) =>
+    experience.company === "Maersk" && experience.role === "Software Engineer"
+      ? {
+          ...experience,
+          period:
+            currentRole === "Software Engineer at Maersk"
+              ? "Jul 2023 — Present"
+              : "Jul 2023 — Sep 2026",
+        }
+      : experience,
+  );
+
+  return (
+    <section id="experience" className="experience-section section-pad section-anchor">
+      <div className="shell">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">Professional experience</p>
+            <h2>
+              From reliability to <span>product ownership.</span>
+            </h2>
+          </div>
+          <p>
+            Four years across site reliability, enterprise product engineering, and
+            independent delivery — with the operational mindset carried through all of
+            it.
+          </p>
         </div>
-        <p>
-          Four years across site reliability, enterprise product engineering, and
-          independent delivery — with the operational mindset carried through all of
-          it.
-        </p>
-      </div>
 
-      <div className="role-list">
-        {experiences.map((experience, index) => (
-          <article className="role-row" key={`${experience.company}-${experience.role}`}>
-            <div className="role-meta">
-              <span className="role-index">0{index + 1}</span>
-              <span className="role-company">{experience.company}</span>
-              <span className="role-period">{experience.period}</span>
-              <span className="role-location">{experience.location}</span>
-            </div>
-
-            <div className="role-body">
-              <h3>{experience.role}</h3>
-              <ul>
-                {experience.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-              <div className="role-tags">
-                {experience.skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
+        <div className="role-list">
+          {currentExperiences.map((experience, index) => (
+            <article className="role-row" key={`${experience.company}-${experience.role}`}>
+              <div className="role-meta">
+                <span className="role-index">0{index + 1}</span>
+                <span className="role-company">{experience.company}</span>
+                <span className="role-period">{experience.period}</span>
+                <span className="role-location">{experience.location}</span>
               </div>
-            </div>
-          </article>
-        ))}
+
+              <div className="role-body">
+                <h3>{experience.role}</h3>
+                <ul>
+                  {experience.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+                <div className="role-tags">
+                  {experience.skills.map((skill) => (
+                    <span key={skill}>{skill}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ExperienceSection;

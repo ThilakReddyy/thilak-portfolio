@@ -256,8 +256,8 @@ a:focus-visible {
 }
 
 .lets-talk-btn:hover {
-  color: var(--orange);
-  border-color: var(--orange);
+  color: var(--blue);
+  border-color: var(--blue);
 }
 
 .lets-talk-btn:hover svg {
@@ -462,6 +462,16 @@ a:focus-visible {
   box-shadow: 5px 5px 0 var(--orange);
 }
 
+.button-outline-light {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: transparent;
+  color: var(--white);
+}
+
+.button-outline-light:hover {
+  box-shadow: 5px 5px 0 var(--orange);
+}
+
 .hero-socials {
   display: flex;
   gap: 0.6rem;
@@ -506,7 +516,7 @@ a:focus-visible {
   gap: 0.65rem;
   padding: 1rem 1.2rem;
   font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -556,7 +566,7 @@ a:focus-visible {
   padding: 0.9rem 1.5rem;
   animation: ticker-drift 24s linear infinite alternate;
   font-family: "DM Mono", monospace;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.13em;
 }
@@ -621,7 +631,7 @@ a:focus-visible {
   margin: 1.2rem 0 0;
   color: var(--muted);
   font-family: "DM Mono", monospace;
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   letter-spacing: 0.04em;
 }
 
@@ -636,14 +646,6 @@ a:focus-visible {
   grid-template-columns: repeat(4, 1fr);
   border-top: 2px solid var(--ink);
   border-left: 2px solid var(--ink);
-}
-
-.proof-grid-three {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.story-grid {
-  margin-top: clamp(3rem, 6vw, 4.5rem);
 }
 
 .proof-card {
@@ -680,7 +682,7 @@ a:focus-visible {
 .proof-eyebrow {
   color: var(--muted);
   font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -772,7 +774,7 @@ a:focus-visible {
   margin: 0 0 0.25rem;
   color: rgba(255, 255, 255, 0.56);
   font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -928,9 +930,9 @@ a:focus-visible {
 }
 
 .surface-head span {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.58);
   font-family: "DM Mono", monospace;
-  font-size: 0.64rem;
+  font-size: 0.7rem;
 }
 
 .surface strong {
@@ -1002,8 +1004,8 @@ a:focus-visible {
 }
 
 .work-outro a:hover {
-  border-color: var(--orange);
-  color: var(--orange);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 /* ── Experience ── */
@@ -1033,7 +1035,7 @@ a:focus-visible {
 .role-index {
   color: var(--muted);
   font-family: "DM Mono", monospace;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 650;
   letter-spacing: 0.09em;
 }
@@ -1047,7 +1049,7 @@ a:focus-visible {
 .role-period {
   color: var(--muted);
   font-family: "DM Mono", monospace;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   letter-spacing: 0.05em;
 }
 
@@ -1104,7 +1106,7 @@ a:focus-visible {
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
@@ -1275,7 +1277,7 @@ a:focus-visible {
 .capability-head span {
   color: rgba(255, 255, 255, 0.55);
   font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   letter-spacing: 0.09em;
   text-align: right;
   text-transform: uppercase;
@@ -1414,7 +1416,7 @@ a:focus-visible {
 .note-index,
 .note-topic {
   font-family: "DM Mono", monospace;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1439,6 +1441,12 @@ a:focus-visible {
   color: rgba(16, 16, 15, 0.64);
   font-size: 0.75rem;
   line-height: 1.45;
+}
+
+.note-copy .note-credit {
+  color: var(--blue);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
 }
 
 /* ── Contact ── */
@@ -1582,9 +1590,9 @@ a:focus-visible {
   margin-top: 3rem;
   padding-top: 1.4rem;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.58);
   font-family: "DM Mono", monospace;
-  font-size: 0.58rem;
+  font-size: 0.68rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -1656,8 +1664,7 @@ a:focus-visible {
 /* ── Responsive ── */
 
 @media (max-width: 1100px) {
-  .proof-grid,
-  .proof-grid-three {
+  .proof-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1874,7 +1881,6 @@ a:focus-visible {
   .capability-grid,
   .stack-line,
   .proof-grid,
-  .proof-grid-three,
   .builder-proof,
   .contact-channels {
     grid-template-columns: 1fr;

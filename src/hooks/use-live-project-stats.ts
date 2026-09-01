@@ -12,8 +12,8 @@ const fallbackStats: LiveProjectStats = {
   githubStars: 56,
   githubForks: 17,
   playDownloads: "10K+",
-  playRatingsCount: "19",
-  playVersion: "1.0.47",
+  playRatingsCount: "25",
+  playVersion: "1.0.54",
 };
 
 const githubRepositoryUrl =

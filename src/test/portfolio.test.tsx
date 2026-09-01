@@ -20,7 +20,7 @@ describe("portfolio", () => {
         /Software Engineer at Maersk|Freelance Software Engineer/i,
       ),
     ).toBeInTheDocument();
-    expect(screen.getByText("Jul 2023 — Sep 2026")).toBeInTheDocument();
+    expect(screen.getByText(/Jul 2023 — (Present|Sep 2026)/)).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { level: 3, name: "Freelance Software Engineer" }),
     ).toBeInTheDocument();
@@ -46,7 +46,7 @@ describe("portfolio", () => {
     expect(screen.getByText("10K+ downloads")).toBeInTheDocument();
     expect(screen.getByText("56 / 17")).toBeInTheDocument();
     expect(
-      screen.getByText(/has 19 ratings and is currently on version 1\.0\.47/i),
+      screen.getByText(/has 25 ratings and is currently on version 1\.0\.54/i),
     ).toBeInTheDocument();
     expect(screen.getByText("<40ms")).toBeInTheDocument();
     expect(screen.getByText("#1")).toBeInTheDocument();
@@ -54,7 +54,8 @@ describe("portfolio", () => {
       /under \$14 per month while supporting 4K\+ daily active users and 22K\+ daily API calls/i,
     );
     expect(screen.getByText("400+")).toBeInTheDocument();
-    expect(screen.getByText(/Top 3% Toptal talent/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Toptal Verified Expert/i).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/Top 3% Toptal talent/i)).not.toBeInTheDocument();
     expect(screen.getByText(/zero major post-production defects/i)).toBeInTheDocument();
     expect(screen.getByText(/reduced activation time from 25 days to three days/i)).toBeInTheDocument();
     expect(screen.getByText(/Reduced production bugs by 32%/i)).toBeInTheDocument();
@@ -119,10 +120,10 @@ describe("portfolio", () => {
     }
   });
 
-  it("offers a direct résumé download", () => {
+  it("offers a clear résumé link", () => {
     render(<Index />);
 
-    expect(screen.getByRole("link", { name: /download résumé pdf/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /view résumé on google drive/i })).toHaveAttribute(
       "href",
       "https://drive.google.com/file/d/1QmYEXHZ_ZGAKT3ZwrwBRC1nw2QnDFFd1/view?usp=sharing",
     );

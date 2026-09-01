@@ -1,5 +1,5 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { label: "Proof", href: "#proof" },
@@ -13,6 +13,8 @@ const links = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavigationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -24,12 +26,25 @@ const Navbar = () => {
   useEffect(() => {
     if (!mobileOpen) return;
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => {
+      mobileNavigationRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    });
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMobileOpen(false);
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [mobileOpen]);
 
   return (
@@ -53,6 +68,7 @@ const Navbar = () => {
         </a>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="menu-button"
           onClick={() => setMobileOpen((open) => !open)}
@@ -69,7 +85,12 @@ const Navbar = () => {
       </div>
 
       {mobileOpen && (
-        <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">
+        <nav
+          ref={mobileNavigationRef}
+          id="mobile-navigation"
+          className="mobile-nav"
+          aria-label="Mobile navigation"
+        >
           <div className="shell">
             {links.map((link) => (
               <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)}>

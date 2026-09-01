@@ -10,9 +10,9 @@ const CredentialsSection = ({ stats }: CredentialsSectionProps) => {
     {
       icon: BadgeCheck,
       eyebrow: "Vetted network",
-      title: "Top 3% Toptal talent",
+      title: "Toptal Verified Expert",
       description:
-        "Accepted as a Verified Expert in Engineering following Toptal's rigorous screening process.",
+        "Verified Expert in Engineering on Toptal, with a public profile covering production experience and technical depth.",
       label: "View Toptal profile",
       href: "https://www.toptal.com/developers/resume/pothuganti-thilak-reddy",
     },
@@ -21,7 +21,7 @@ const CredentialsSection = ({ stats }: CredentialsSectionProps) => {
       eyebrow: "Apple App Store",
       title: "Native iOS app shipped",
       description:
-        "JNTUH Connect version 1.0.2 is live under my developer identity, following its July 2026 launch.",
+        "JNTUH Connect is published under my developer identity and actively maintained across iPhone and iPad.",
       label: "View on the App Store",
       href: "https://apps.apple.com/in/app/jntuh-connect/id6790828236",
     },
@@ -80,7 +80,8 @@ const CredentialsSection = ({ stats }: CredentialsSectionProps) => {
         </div>
 
         <p className="section-note">
-          Store and GitHub figures refresh from their public listings on page load.
+          Google Play and GitHub figures refresh from their public listings on page
+          load. App Store proof links directly to Apple.
         </p>
       </div>
     </section>

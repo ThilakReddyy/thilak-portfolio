@@ -15,7 +15,7 @@
 - 4K+ daily active web users.
 - 22K+ API calls per day.
 - Operates the complete AWS EC2, Cloudflare, web/API, Google Play, and App Store production footprint for under $14 per month.
-- 10K+ Google Play downloads and 19 ratings as of 6 August 2026.
+- 10K+ Google Play downloads and 25 ratings as of 1 September 2026.
 
 ## Public applications
 
