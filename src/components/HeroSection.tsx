@@ -7,7 +7,6 @@ import {
   Linkedin,
   Mail,
 } from "lucide-react";
-import profileImg from "@/assets/thilak-reddy.jpeg";
 import { useCurrentRole } from "@/hooks/use-current-role";
 
 const resumeDownloadUrl =
@@ -50,10 +49,6 @@ const ticker = [
 
 const HeroSection = () => {
   const currentRole = useCurrentRole();
-  const availability =
-    currentRole === "Freelance Software Engineer"
-      ? "Open to new work"
-      : "Available from September 2026";
 
   return (
     <section className="hero" aria-labelledby="hero-title">
@@ -74,9 +69,9 @@ const HeroSection = () => {
           </h1>
 
           <p className="hero-lede">
-            I&apos;m Thilak Reddy. From React and native mobile apps to FastAPI and
-            Java services, queues, observability, and automated releases — I own the
-            path from problem to users.
+            I&apos;m Thilak Reddy. I turn ambiguous problems into reliable software,
+            treating system design, data flow, failure modes, delivery, and the user
+            experience as one connected engineering problem.
           </p>
 
           <div className="hero-chips">
@@ -123,25 +118,77 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="hero-object reveal reveal-delay">
-          <div className="object-label">
-            <span>Availability</span>
-            <strong>{availability}</strong>
+        <div className="hero-system reveal reveal-delay" aria-hidden="true">
+          <div className="system-bar">
+            <div className="system-lights">
+              <i />
+              <i />
+              <i />
+            </div>
+            <span>engineering.system</span>
+            <b>END TO END</b>
           </div>
-          <img
-            src={profileImg}
-            alt="Pothuganti Thilak Reddy"
-            width="960"
-            height="1280"
-            loading="eager"
-            decoding="async"
-            className="object-portrait"
-          />
-          <div className="object-footer">
-            <span>Web</span>
-            <span>API</span>
-            <span>Android</span>
-            <span>iOS</span>
+
+          <div className="system-canvas">
+            <p className="system-command">
+              <span>●</span> Problem solving across the full lifecycle
+            </p>
+
+            <div className="architecture-map">
+              <svg viewBox="0 0 320 290" preserveAspectRatio="none">
+                <path d="M160 145 L65 55" />
+                <path d="M160 145 L255 55" />
+                <path d="M160 145 L65 235" />
+                <path d="M160 145 L255 235" />
+                <circle cx="160" cy="145" r="90" />
+              </svg>
+
+              <div className="map-node map-node-web">
+                <span>01</span>
+                <strong>PRODUCT</strong>
+                <small>Useful workflows</small>
+              </div>
+
+              <div className="map-node map-node-api">
+                <span>02</span>
+                <strong>SYSTEMS</strong>
+                <small>Data · boundaries</small>
+              </div>
+
+              <div className="map-core">
+                <small>SOFTWARE</small>
+                <strong>ENGINEER</strong>
+                <span>THINK · BUILD · RUN</span>
+              </div>
+
+              <div className="map-node map-node-android">
+                <span>03</span>
+                <strong>DELIVERY</strong>
+                <small>Safe releases</small>
+              </div>
+
+              <div className="map-node map-node-ios">
+                <span>04</span>
+                <strong>OPERATIONS</strong>
+                <small>Observe · improve</small>
+              </div>
+            </div>
+
+            <div className="system-layers">
+              <span>DESIGN</span>
+              <span>BUILD</span>
+              <span>DELIVER</span>
+              <span>OPERATE</span>
+            </div>
+
+            <div className="system-output">
+              <span>PROBLEM</span>
+              <i />
+              <span>ENGINEERING</span>
+              <i />
+              <span>OUTCOME</span>
+              <strong>● PRODUCTION</strong>
+            </div>
           </div>
         </div>
       </div>
