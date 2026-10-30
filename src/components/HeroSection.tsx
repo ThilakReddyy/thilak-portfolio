@@ -183,7 +183,10 @@ const HeroSection = () => {
               <span>ENGINEERING</span>
               <i />
               <span>OUTCOME</span>
-              <strong>● PRODUCTION</strong>
+              <strong>
+                <span aria-hidden="true" />
+                PRODUCTION
+              </strong>
             </div>
           </div>
         </div>
